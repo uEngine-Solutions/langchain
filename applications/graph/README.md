@@ -28,3 +28,10 @@ For debug mode:
 handler = StdOutCallbackHandler()
 chain.run(... , callbacks=[handler])
 ```
+
+
+To Attach to the Neo4J CLI:
+```
+ docker exec -it neo4j bash
+ cypher-shell -u neo4j -p pleaseletmein
+```

@@ -13,16 +13,20 @@ diffbot_nlp = DiffbotGraphTransformer(diffbot_api_key=diffbot_api_key)
 
 from langchain.document_loaders import WikipediaLoader
 
-# query = "Warren Buffett"
+# raw_document1 = Document(page_content="""
+# 장진영씨는 2023년 1월에 유엔진에 입사했다.
+# 장진영씨가 2023년 2월에 대표이사로 승진했다.
+# 장진영씨의 휴가일수는 10일이다.
+# 장진영씨는 경영지원팀의 팀장이자 대표이사다.
+# 경영지원팀에는 서원주씨가 사원으로 근무한다.
+# 서원주씨의 남은 휴가일수는 10일이다.
+# 장진영씨가 휴가를 하루 썼다.
+# 서원주는 휴가를 이틀 사용했다.
+# """, metadata={"source": "local"})
+
 raw_document1 = Document(page_content="""
-장진영씨는 2023년 1월에 유엔진에 입사했다.
-장진영씨가 2023년 2월에 대표이사로 승진했다.
-장진영씨의 휴가일수는 10일이다.
-장진영씨는 경영지원팀의 팀장이자 대표이사다.
-경영지원팀에는 서원주씨가 사원으로 근무한다.
-서원주씨의 남은 휴가일수는 10일이다.
-장진영씨가 휴가를 하루 썼다.
-서원주는 휴가를 이틀 사용했다.
+Bob is a member of uenginesolutions
+Bob's remaining vacation days is 15 days.
 """, metadata={"source": "local"})
 
 raw_documents = []
@@ -44,8 +48,8 @@ graph = Neo4jGraph(url=url, username=username, password=password)
 
 
 
-# graph.add_graph_documents(graph_documents)
-# graph.refresh_schema()
+graph.add_graph_documents(graph_documents)
+graph.refresh_schema()
 
 from langchain.chains import GraphCypherQAChain
 from langchain.chat_models import ChatOpenAI
