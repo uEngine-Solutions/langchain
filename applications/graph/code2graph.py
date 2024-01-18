@@ -21,7 +21,7 @@ raw_documents = []
 
 
 
-with open('applications/graph/merged_text_files.txt', 'r') as file:
+with open('applications/graph/activity_hierarchy_analysis.txt', 'r') as file:
     content = file.read()
     raw_document1 = Document(page_content=content, metadata={"source": "local"})
     raw_documents.append(raw_document1)

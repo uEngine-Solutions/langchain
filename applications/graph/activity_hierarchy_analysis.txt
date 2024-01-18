@@ -1,0 +1,1762 @@
+Class: DefaultActivity
+File: src/src/org/uengine/kernel/DefaultActivity.java
+
+Inherits from: Activity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public InitialContext getInitialContext(No parameters)
+
+
+Class: ExtSoundPlayActivity
+File: src/src/org/uengine/kernel/ExtSoundPlayActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public boolean enableIf(Object dependencyFieldValue)
+- public boolean enableIf(Object dependencyFieldValue)
+- public String getMode(No parameters)
+- public void setMode(String mode)
+- public SoundUrlContext getSoundUrl(No parameters)
+- public void setSoundUrl(SoundUrlContext soundUrl)
+- public FileContext getSoundFile(No parameters)
+- public void setSoundFile(FileContext soundFile)
+- public void play(ProcessInstance instance)
+- public void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: SuspendActivity
+File: src/src/org/uengine/kernel/SuspendActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public void resume(ProcessInstance instance)
+
+
+Class: StatusReportActivity
+File: src/src/org/uengine/kernel/StatusReportActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getContent(No parameters)
+- public void setContent(String string)
+- public String getFieldName(No parameters)
+- public void setFieldName(String fieldName)
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: UrgeEMailActivity
+File: src/src/org/uengine/kernel/UrgeEMailActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: DRoolsActivity
+File: src/src/org/uengine/kernel/DRoolsActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getDefinitionId(No parameters)
+- public void setDefinitionId(String l)
+- public void setVariableBindings(ParameterContext[] contexts)
+- protected void executeActivity(ProcessInstance instance)
+- public void logic(Object target)
+- public String getDefinitionVersionId(ProcessInstance instance)
+- private RuleBase readRule(ProcessInstance instance)
+
+
+Class: HTTPInvocationActivity
+File: src/src/org/uengine/kernel/HTTPInvocationActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getHost(No parameters)
+- public void setHost(String host)
+- public int getPort(No parameters)
+- public void setPort(int port)
+- public String getProtocol(No parameters)
+- public void setProtocol(String protocol)
+- public String getTargetURL(No parameters)
+- public void setTargetURL(String targetURL)
+- public String getUri(No parameters)
+- public void setUri(String uri)
+- public int getInvocationType(No parameters)
+- public void setInvocationType(int invocationType)
+- public void setParameters(ParameterContext[] parameters)
+- public String getPayload(No parameters)
+- public void setPayload(String payload)
+- public ProcessVariable getResultPV(No parameters)
+- public void setResultPV(ProcessVariable resultPV)
+- public void executeActivity(ProcessInstance instance)
+
+
+Class: ExternalAppInvocationActivity
+File: src/src/org/uengine/kernel/ExternalAppInvocationActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getApplicationPath(No parameters)
+- public void setApplicationPath(String applicationPath)
+- public void setArguments(ParameterContext[] arguments)
+- public ProcessVariable getVariableOut(No parameters)
+- public void setVariableOut(ProcessVariable variableOut)
+- public String getDefaultDirectory(No parameters)
+- public void setDefaultDirectory(String defaultDirectory)
+- protected void executeActivity(ProcessInstance instance)
+- public void write(String out)
+- public void completed(No parameters)
+- public ValidationContext validate(Map options)
+- public void setBeanProperty(String key, Object value)
+- public Object getBeanProperty(String key)
+
+
+Class: WebServiceActivity
+File: src/src/org/uengine/kernel/WebServiceActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public ServiceDefinition getService(No parameters)
+- public void setService(ServiceDefinition service)
+- public String getPortType(No parameters)
+- public void setPortType(String value)
+- public String getOperationName(No parameters)
+- public void setOperationName(String value)
+- public void setParameters(Object[] value)
+- public Role getRole(No parameters)
+- public void setRole(Role value)
+- public ProcessVariable getOutput(No parameters)
+- public void setOutput(ProcessVariable value)
+- public boolean getStublessInvocation(No parameters)
+- public void setStublessInvocation(boolean stublessInvocation)
+- public void executeActivity(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance instance, String locale)
+- public ValidationContext validate(Map options)
+- public PortType getPortType(Definition wsdlDef)
+- public Operation getOperation(Definition wsdlDef)
+
+
+Class: EMailActivity
+File: src/src/org/uengine/kernel/EMailActivity.java
+
+Inherits from: WebServiceActivity
+
+No members
+
+Methods:
+- public String getContents(No parameters)
+- public void setContents(String value)
+- public String getTitle(No parameters)
+- public void setTitle(String value)
+- public Role getToRole(No parameters)
+- public void setToRole(Role value)
+- public void executeActivity(ProcessInstance instance)
+- protected void invokeWebService(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+
+
+Class: MessengerActivity
+File: src/src/org/uengine/kernel/MessengerActivity.java
+
+Inherits from: EMailActivity
+
+No members
+
+Methods:
+- public void executeActivity(final ProcessInstance instance)
+
+
+Class: SubProcessActivity
+File: src/src/org/uengine/kernel/SubProcessActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getInstanceId(No parameters)
+- public void setInstanceId(String string)
+- public String getDefinitionId(No parameters)
+- public void setDefinitionId(String l)
+- public ProcessDefinition getDefinitionObject(No parameters)
+- public void setDefinitionObject(ProcessDefinition definition)
+- public String getDynamicDefinitionId(No parameters)
+- public void setDynamicDefinitionId(String dynamicDefinitionId)
+- public ProcessVariable getDynamicDefinitionIdPV(No parameters)
+- public void setDynamicDefinitionIdPV(ProcessVariable dynamicDefinitionIdPV)
+- public int getVersionSelectOption(No parameters)
+- public void setVersionSelectOption(int versionSelectOption)
+- public void setVariableBindings(ParameterContext[] contexts)
+- public void setRoleBindings(RoleParameterContext[] contexts)
+- public boolean isRunAndForget(No parameters)
+- public void setRunAndForget(boolean b)
+- public boolean isCreateAsRootProcess(No parameters)
+- public void setCreateAsRootProcess(boolean createAsRootProcess)
+- public TextContext getMultipleInstanceLabel(No parameters)
+- public void setMultipleInstanceLabel(TextContext multipleInstanceLabel)
+- public Role getForEachRole(No parameters)
+- public void setForEachRole(Role role)
+- public ProcessVariable getForEachVariable(No parameters)
+- public void setForEachVariable(ProcessVariable forEachVariable)
+- public boolean isViewAlsoInMainProcess(No parameters)
+- public void setViewAlsoInMainProcess(boolean viewAlsoInMainProcess)
+- private Hashtable getUnInitiatedRoleMappings(ProcessInstance instance)
+- private Hashtable getDeletedRoleMappings(ProcessInstance instance)
+- private void stopSubProcessInstance(ProcessInstance instance,Hashtable deletedRoleMappings)
+- public void refreshMultipleInstance(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- public void onSubProcessReturn(ProcessInstance instance, ProcessInstance subProcessInstance, boolean skipped)
+- protected void applyVariableBindings(ProcessInstance instance, Vector spIds, Map subProcesses, Map options)
+- protected void afterComplete(ProcessInstance instance)
+- protected void applyRoleBindings(ProcessInstance instance, Vector spIds, Map subProcesses, Map options)
+- public Vector getSubProcesses(ProcessInstance instance)
+- public String getDefinitionVersionId(ProcessInstance instance)
+- public String getDefinitionVersionId(String realDefinitionId, ProcessInstance instance)
+- protected ProcessInstance initiateSubProcess(String realDefinitionId, ProcessInstance instance, RoleMapping currentRoleMapping, Serializable currentVariableValue, boolean isConnectedMultipleSubProcesses, int mappingIndex)
+- protected void transferValues(ProcessInstance instance, ProcessInstance subProcessInstance, RoleMapping currentRoleMapping, Serializable currentVariableValue, int mappingIndex)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- public ValidationContext validate(Map options)
+- protected void setSubprocessIds(ProcessInstance instance, Vector<String> spIds, String space)
+- public void reset(ProcessInstance instance)
+- public void skip(ProcessInstance instance)
+- public void stop(ProcessInstance instance)
+- public void compensate(ProcessInstance instance)
+- public String getDefinitionIdOnly(No parameters)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- public void attachSubProcess(ProcessInstance instance, String subProcessInstanceId, String label)
+- public boolean onMessage(ProcessInstance instance, Object payload)
+- public String getMessage(No parameters)
+- public String getTracingTag(No parameters)
+
+
+Class: FTPActivity
+File: src/src/org/uengine/kernel/FTPActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public String getAccount(No parameters)
+- public String getAddress(No parameters)
+- public String getDirectory(No parameters)
+- public String getFileName(No parameters)
+- public String getPassword(No parameters)
+- public String getSourceURL(No parameters)
+- public void setAccount(String string)
+- public void setAddress(String string)
+- public void setDirectory(String string)
+- public void setFileName(String string)
+- public void setPassword(String string)
+- public void setSourceURL(String string)
+
+
+Class: JMSQueueActivity
+File: src/src/org/uengine/kernel/JMSQueueActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public boolean isJmsRedelivered(No parameters)
+- public void setJmsRedelivered(boolean jmsRedelivered)
+- public String getMessageFormat(No parameters)
+- public void setMessageFormat(String messageFormat)
+- public String getQueueConnectionFactoryJNDIName(No parameters)
+- public String getResultQueueJNDIName(No parameters)
+- public void setResultQueueJNDIName(String resultQueueJNDIName)
+- public int getAcknowledgeType(No parameters)
+- public void setAcknowledgeType(int acknowledgeType)
+- public boolean isIssueNewTransaction(No parameters)
+- public void setIssueNewTransaction(boolean issueNewTransaction)
+- public String getJmsProvider(No parameters)
+- public void setJmsProvider(String jmsProvider)
+- public void setMessageValues(ParameterContext[] messageValues)
+- public void setPropertyValues(ParameterContext[] propertyValues)
+
+
+Class: OpenAdaptorActivity
+File: src/src/org/uengine/kernel/OpenAdaptorActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public ActivityDesigner createDesigner(No parameters)
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: ReceiveActivity
+File: src/src/org/uengine/kernel/ReceiveActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getMessage(No parameters)
+- public void setMessage(String value)
+- public ProcessVariable getOutput(No parameters)
+- public void setOutput(ProcessVariable value)
+- public MessageDefinition getMessageDefinition(No parameters)
+- public void setMessageDefinition(MessageDefinition definition)
+- public void setParameters(ParameterContext[] contexts)
+- public Role getFromRole(No parameters)
+- public void setFromRole(Role role)
+- protected void afterPreviousActivityExecute(ActivityInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected boolean isMyMessage(String message, ProcessInstance instance, Object payload)
+- protected void onReceive(ProcessInstance instance, Object payload)
+- public void savePayload(ProcessInstance instance, ResultPayload resultPayload)
+- protected boolean testMyMessage(ProcessInstance instance, Vector payloads)
+- public ValidationContext validate(Map options)
+- public void fireReceived(ProcessInstance instance, Object payload)
+- public boolean onMessage(ProcessInstance instance, Object payload)
+
+
+Class: SQLSampleActivity
+File: src/src/org/uengine/test/SQLSampleActivity.java
+
+Inherits from: ReceiveActivity
+
+No members
+
+Methods:
+- public TextContext getSqlStmt(No parameters)
+- public void setSqlStmt(TextContext value)
+- public String getConnectionString(No parameters)
+- public void setConnectionString(String value)
+- public String getUserId(No parameters)
+- public void setUserId(String value)
+- public String getPassword(No parameters)
+- public void setPassword(String value)
+- public String getDriverClass(No parameters)
+- public void setDriverClass(String value)
+- public ProcessInstance createInstance(ProcessInstance instanceInCreating)
+- public void executeActivity(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+
+
+Class: HumanActivity
+File: src/src/org/uengine/kernel/HumanActivity.java
+
+Inherits from: ReceiveActivity
+
+No members
+
+Methods:
+- public Role getRole(No parameters)
+- public void setRole(Role value)
+- public Role getReferenceRole(No parameters)
+- public void setReferenceRole(Role referenceRole)
+- public String getTool(No parameters)
+- public void setTool(String value)
+- public boolean isSendEmailWorkitem(No parameters)
+- public void setSendEmailWorkitem(boolean isSendEmailWorkitem)
+- public boolean isNotificationWorkitem(No parameters)
+- public void setNotificationWorkitem(boolean isNotificationWorkitem)
+- public boolean isAllowAnonymous(No parameters)
+- public void setAllowAnonymous(boolean isAllowAnonymous)
+- public int getDuration(No parameters)
+- public int getDuration(ProcessInstance instance)
+- public void setDuration(int i)
+- public void setDuration(ProcessInstance instance, int duration)
+- public Calendar getDueDate(ProcessInstance instance)
+- public void setDueDate(ProcessInstance instance, Calendar dueDate, boolean updateWorkList)
+- public void setDueDate(ProcessInstance instance, Calendar dueDate, boolean updateWorkList, boolean refreshDuration)
+- public void setDueDate(ProcessInstance instance, Calendar dueDate)
+- private void setCompletedRoleMapping(ProcessInstance instance, RoleMapping completedRoleMapping)
+- private RoleMapping getCompletedRoleMapping(ProcessInstance instance)
+- public int getCo2Emission(No parameters)
+- public void setCo2Emission(int co2Emission)
+- public int getWorkload(No parameters)
+- public void setWorkload(int i)
+- public int getPriority(No parameters)
+- public void setPriority(int i)
+- public ProcessVariable getInput(No parameters)
+- public void setInput(ProcessVariable value)
+- public String getExtValue1(No parameters)
+- public void setExtValue1(String extValue1)
+- public String getExtValue2(No parameters)
+- public void setExtValue2(String extValue2)
+- public String getExtValue3(No parameters)
+- public void setExtValue3(String extValue3)
+- public String getExtValue4(No parameters)
+- public void setExtValue4(String extValue4)
+- public String getExtValue5(No parameters)
+- public void setExtValue5(String extValue5)
+- public String getExtValue6(No parameters)
+- public void setExtValue6(String extValue6)
+- public String getExtValue7(No parameters)
+- public void setExtValue7(String extValue7)
+- public String getExtValue8(No parameters)
+- public void setExtValue8(String extValue8)
+- public String getExtValue9(No parameters)
+- public void setExtValue9(String extValue9)
+- public String getExtValue10(No parameters)
+- public void setExtValue10(String extValue10)
+- protected String getWIHSysAddress(No parameters)
+- public TextContext getInstruction(No parameters)
+- public void setInstruction(TextContext string)
+- public TextContext getKeyword(No parameters)
+- public void setKeyword(TextContext string)
+- public void setOpenTime(ProcessInstance instance, Calendar theTime)
+- public Calendar getOpenTime(ProcessInstance instance)
+- public Map createParameter(final ProcessInstance instance)
+- public Object put(Object key, Object val)
+- protected RoleMapping getActualMapping(ProcessInstance instance)
+- public RoleMapping getActualMapping(ProcessInstance instance)
+- protected void setCompletedHumanActivityInTransaction(ProcessInstance instance)
+- public HumanActivity getCompletedHumanActivityInTransaction(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- protected void addWorkitem(ProcessInstance instance, String defaultStatus)
+- public boolean onComplete(ProcessInstance instance, Object payload)
+- protected void onReceive(ProcessInstance instance, Object payload)
+- public void setTracingTag(String tag)
+- public String getStatus(ProcessInstance instance)
+- protected String getExtraMessage(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- protected void afterComplete(ProcessInstance instance)
+- protected void beforeExecute(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+- public void compensate(ProcessInstance instance)
+- public void skip(ProcessInstance instance)
+- public void suspend(ProcessInstance instance)
+- public void reset(ProcessInstance instance)
+- protected void cancelWorkItem(ProcessInstance instance)
+- protected void cancelWorkItem(ProcessInstance instance, String status)
+- protected void setTaskIds(ProcessInstance instance, String[] taskIds)
+- protected Map getTaskStatusMap(ProcessInstance instance)
+- protected void setTaskStatusMap(ProcessInstance instance, Map map)
+- public Map getParameterMap(No parameters)
+- public void setStartedTime(ProcessInstance instance, Calendar theTime)
+- protected void refreshDuration(ProcessInstance instance)
+- public void stop(ProcessInstance instance)
+- public void stop(ProcessInstance instance, String status)
+- public void delegate(ProcessInstance instance, RoleMapping roleMapping)
+- public void delegate(ProcessInstance instance, RoleMapping roleMapping, boolean delegateOnlyForWorkitem)
+- public void saveWorkItem(ProcessInstance instance, ResultPayload payload)
+- public HumanActivity getPreviousHumanActivity(ProcessInstance instance)
+- public void logic(Activity activity)
+- public void afterExecute(ProcessInstance instance)
+- protected void saveSnapshotHTML(ProcessInstance instance)
+- public PrintWriter getWriter(No parameters)
+
+
+Class: MetaworksActivity
+File: src/src/org/uengine/kernel/MetaworksActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public String getTool(No parameters)
+- public void setTool(String toolName)
+- public String getApplicationName(No parameters)
+- public void setApplicationName(String string)
+
+
+Class: WorkFlowActivity
+File: src/src/org/uengine/kernel/WorkFlowActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public ValidationContext validate(Map options)
+
+
+Class: FormActivity
+File: src/src/org/uengine/kernel/FormActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public void setMappingContext(MappingContext mappingContext)
+- public ProcessVariable getVariableForHtmlFormContext(No parameters)
+- public boolean isMappingWhenSave(No parameters)
+- public void setMappingWhenSave(boolean mappingWhenSave)
+- public String getDefinitionVersionId(ProcessInstance instance)
+- private String readForm(ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- protected void mappingOut(ProcessInstance instance)
+- public void saveWorkItem(ProcessInstance instance, ResultPayload payload)
+- public String getParameter(Map parameterMap, String key)
+- public Map getMappedResult(ProcessInstance instance)
+- public Map createParameterMapFromRequest(HttpServletRequest request )
+- public Map createParameterMapFromRequest(boolean isSimulate, HttpServletRequest request)
+- protected void onSave(ProcessInstance instance, Map parameterMap_)
+- public void saveFormVariableXML(ProcessInstance instance, Map valueMap, String filePath)
+- private void saveFormHTML(ProcessInstance instance, Map valueMap, String filePath)
+- public PrintWriter getWriter(No parameters)
+- public PrintWriter getWriter(No parameters)
+- public String getFormDefinitionVersionId(ProcessInstance instance, ProcessManagerRemote pm)
+- public String getFormDefinitionPath(ProcessInstance instance, ProcessManagerRemote pm)
+- public void onSave(ProcessInstance instance, HttpServletRequest request)
+- public String getTool(No parameters)
+- protected void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+- protected void saveSnapshotHTML(ProcessInstance instance)
+
+
+Class: ConfirmActivity
+File: src/src/org/uengine/kernel/ConfirmActivity.java
+
+Inherits from: FormActivity
+
+No members
+
+Methods:
+- public String getTool(No parameters)
+- public boolean isAutoComplete(No parameters)
+- public void setAutoComplete(boolean isAutoComplete)
+- public boolean isViewMode(No parameters)
+- public void setViewMode(boolean isViewMode)
+- protected void onSave(ProcessInstance instance, Map parameterMap_)
+
+
+Class: FormApprovalActivity
+File: src/src/org/uengine/kernel/FormApprovalActivity.java
+
+Inherits from: FormActivity
+
+No members
+
+Methods:
+- public String getTool(No parameters)
+- public Map createParameter(ProcessInstance instance)
+- public RoleMapping getActualMapping(ProcessInstance instance)
+- protected String createApproverRoleName(No parameters)
+- public RoleMapping getApprover(ProcessInstance instance)
+- public void setApprover(ProcessInstance instance, RoleMapping approver)
+- public Role getRole(No parameters)
+- public String getName(No parameters)
+- public TextContext getDisplayName(No parameters)
+- public RoleMapping getMapping(ProcessInstance inst, String tracingTag)
+- public boolean isViewMode(No parameters)
+- public void setViewMode(boolean isViewMode)
+- public void arbitraryApprove(ProcessInstance instance)
+- public void rejectApprove(ProcessInstance instance)
+- public void setApprovalStatus(ProcessInstance instance, String status)
+- public String getApprovalStatus(ProcessInstance instance)
+- public FormApprovalLineActivity getApprovalLineActivity(No parameters)
+- protected void afterComplete(ProcessInstance instance)
+- protected void onSave(ProcessInstance instance, Map parameterMap_)
+- public boolean isArbitraryApprovable(No parameters)
+- public void setArbitraryApprovable(boolean isArbitraryApprovable)
+
+
+Class: CirculationFormActivity
+File: src/src/org/uengine/kernel/CirculationFormActivity.java
+
+Inherits from: FormActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: DocumentActivity
+File: src/src/org/uengine/kernel/DocumentActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public FileContext getDocumentFile(No parameters)
+- public void setDocumentFile(FileContext value)
+- public boolean isUseWebDav(No parameters)
+- public void setUseWebDav(boolean b)
+- public String getUploadFTPAddress(No parameters)
+- public void setUploadFTPAddress(String uploadFTPaddress)
+- public String getUploadFTPDirectory(No parameters)
+- public void setUploadFTPDirectory(String uploadFTPDirectory)
+- public String getFTPid(No parameters)
+- public void setFTPid(String fTPid)
+- public String getFTPpw(No parameters)
+- public void setFTPpw(String fTPpw)
+- public String getTool(No parameters)
+- public void setTool(String value)
+- protected String getWIHAddress(ActivityInstance instance)
+- public ValidationContext validate(Map options)
+- public Map createParameter(ProcessInstance instance)
+
+
+Class: ExcelSheetActivity
+File: src/src/org/uengine/kernel/ExcelSheetActivity.java
+
+Inherits from: DocumentActivity
+
+No members
+
+Methods:
+- public String getSavingFileName(No parameters)
+- public String getSavingFileName(ProcessInstance instance)
+- public void setSavingFileName(String savingFileName)
+- public FileContext getTemplateDocumentFile(No parameters)
+- public void setTemplateDocumentFile(FileContext templateDocumentFile)
+- private String getFullFTPURL(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- public boolean onComplete(ProcessInstance instance, Object payload)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- public ValidationContext validate(Map options)
+- public Map createParameter(ProcessInstance instance)
+
+
+Class: URLActivity
+File: src/src/org/uengine/kernel/URLActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public String getUrl(No parameters)
+- public void setUrl(String string)
+- public String getUrlWhenSuccess(No parameters)
+- public void setUrlWhenSuccess(String urlWhenSuccess)
+- public ProcessVariable getResultURLPV(No parameters)
+- public void setResultURLPV(ProcessVariable resultURLPV)
+- public ProcessVariable getResultHTMLPV(No parameters)
+- public void setResultHTMLPV(ProcessVariable resultHTMLPV)
+- public void setMappingFromResultHTML(ParameterContext[] mappingFromResultHTML)
+- protected String createURL(ProcessInstance inst)
+- public Map createParameter(ProcessInstance instance)
+- protected String getExtraMessage(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance inst)
+- public boolean onComplete(ProcessInstance instance, Object payload)
+
+
+Class: ApprovalActivity
+File: src/src/org/uengine/kernel/ApprovalActivity.java
+
+Inherits from: URLActivity
+
+No members
+
+Methods:
+- public String getTool(No parameters)
+- public TextContext getName(No parameters)
+- public Map createParameter(ProcessInstance instance)
+- public RoleMapping getActualMapping(ProcessInstance instance)
+- public RoleMapping getApprover(No parameters)
+- public void setApprover(RoleMapping approver)
+- public Role getRole(No parameters)
+- public TextContext getDisplayName(No parameters)
+- public RoleMapping getMapping(ProcessInstance inst, String tracingTag)
+- public void arbitraryApprove(ProcessInstance instance)
+- public void rejectApprove(ProcessInstance instance)
+- public void setApprovalStatus(ProcessInstance instance, String status)
+- public String getApprovalStatus(ProcessInstance instance)
+- public ApprovalLineActivity getApprovalLineActivity(No parameters)
+- protected void afterComplete(ProcessInstance instance)
+
+
+Class: OfficeDocumentActivity
+File: src/src/org/uengine/kernel/OfficeDocumentActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public ProcessVariable getVariableForOfficeDocumentInstance(No parameters)
+- public MappingContext getMappingContext(No parameters)
+- public void setMappingContext(MappingContext mappingContext)
+- public String getTool(No parameters)
+- public Map getMappedResult(ProcessInstance instance)
+- public void logic(Object target)
+- protected void afterComplete(ProcessInstance instance)
+
+
+Class: HumanApprovalActivity
+File: src/src/org/uengine/kernel/HumanApprovalActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public String getTool(No parameters)
+- public Map createParameter(ProcessInstance instance)
+- public RoleMapping getActualMapping(ProcessInstance instance)
+- protected String createApproverRoleName(No parameters)
+- public RoleMapping getApprover(ProcessInstance instance)
+- public void setApprover(ProcessInstance instance, RoleMapping approver)
+- public Role getRole(No parameters)
+- public TextContext getDisplayName(No parameters)
+- public RoleMapping getMapping(ProcessInstance inst, String tracingTag)
+- public boolean isViewMode(No parameters)
+- public void setViewMode(boolean isViewMode)
+- public void arbitraryApprove(ProcessInstance instance)
+- public void rejectApprove(ProcessInstance instance)
+- public void setApprovalStatus(ProcessInstance instance, String status)
+- public String getApprovalStatus(ProcessInstance instance)
+- public HumanApprovalLineActivity getApprovalLineActivity(No parameters)
+- protected void afterComplete(ProcessInstance instance)
+- public boolean isArbitraryApprovable(No parameters)
+- public void setArbitraryApprovable(boolean isArbitraryApprovable)
+
+
+Class: TelnetNormalActivity
+File: src/src/org/uengine/kernel/TelnetNormalActivity.java
+
+Inherits from: HumanActivity
+
+No members
+
+Methods:
+- public void setTelnetConfigHosts(TelnetConfigHost[] telnetConfigHosts)
+- protected void executeActivity(ProcessInstance instance)
+- public void afterExecute(ProcessInstance instance)
+
+
+Class: WaitActivity
+File: src/src/org/uengine/kernel/WaitActivity.java
+
+Inherits from: ReceiveActivity
+
+No members
+
+Methods:
+- public boolean enableIf(Object dependencyFieldValue)
+- public boolean enableIf(Object dependencyFieldValue)
+- public boolean enableIf(Object dependencyFieldValue)
+- public String getMessage(No parameters)
+- public String getHowWait(No parameters)
+- public void setHowWait(String waitingType)
+- protected void executeActivity(ProcessInstance instance)
+- public void run(No parameters)
+- public void beforeCommit(TransactionContext tx)
+- public void beforeRollback(TransactionContext tx)
+- public void afterCommit(TransactionContext tx)
+- public void afterRollback(TransactionContext tx)
+
+
+Class: EmptyActivity
+File: src/src/org/uengine/kernel/EmptyActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: LocalMessengerActivity
+File: src/src/org/uengine/kernel/LocalMessengerActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String validate(Object arg0, Instance arg1)
+- public String getContents(No parameters)
+- public void setContents(String value)
+- public Role getToRole(No parameters)
+- public void setToRole(Role value)
+- public void executeActivity(ProcessInstance instance)
+- public boolean interceptEvent(Activity activity, String command, ProcessInstance instance, Object payload)
+
+
+Class: SMSActivity
+File: src/src/org/uengine/kernel/SMSActivity.java
+
+Inherits from: LocalMessengerActivity
+
+No members
+
+Methods:
+- public RoleMapping findRelative(RoleMapping roleMap)
+
+
+Class: MappingActivity
+File: src/src/org/uengine/kernel/MappingActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public MappingContext getMappingContext(No parameters)
+- public void setMappingContext(MappingContext mappingContext)
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: DatabaseMappingActivity
+File: src/src/org/uengine/kernel/DatabaseMappingActivity.java
+
+Inherits from: MappingActivity
+
+No members
+
+Methods:
+- public void executeActivity(ProcessInstance instance)
+- public ProcessDefinition getProcessDefinition(No parameters)
+- public void fireComplete(ProcessInstance instance)
+- public String getTableName(No parameters)
+- public void setTableName(String tableName)
+- public ConnectionFactory getConnectionFactory(No parameters)
+- public void setConnectionFactory(ConnectionFactory factory)
+- public boolean isApplySingleValueOnly(No parameters)
+- public void setApplySingleValueOnly(boolean applySingleValueOnly)
+- public int getQueryMode(No parameters)
+- public void setQueryMode(int queryMode)
+
+
+Class: FileGenerateActivity
+File: src/src/org/uengine/kernel/FileGenerateActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public String getContent(No parameters)
+- public void setContent(String string)
+- public String getFilePath(No parameters)
+- public void setFilePath(String string)
+- public boolean isAppend(No parameters)
+- public void setAppend(boolean b)
+
+
+Class: AssignActivity
+File: src/src/org/uengine/kernel/AssignActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public int getAssignStyle(No parameters)
+- public void setAssignStyle(int assignStyle)
+- public String getAssignValueInputType(No parameters)
+- public void setAssignValueInputType(String assignValueInputType)
+- public ProcessVariable getVariable(No parameters)
+- public void setVariable(ProcessVariable value)
+- public Object getVal(No parameters)
+- public void setVal(Object value)
+- public String getAssignValue(No parameters)
+- public void setAssignValue(String assignValue)
+- private String generateJavaCode(String scriptSmt)
+- public Serializable scriptCalculator(ProcessInstance instance , String scriptSmt)
+- public Object scriptEngine(String scriptSmt)
+- protected void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: ComplexActivity
+File: src/src/org/uengine/kernel/ComplexActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public void setRoles(Role[] roles)
+- public Role getRole(String roleName)
+- public boolean isOpenTo(String roleName)
+- public void addRole(Role role)
+- public ProcessVariable getProcessVariable(String pvName)
+- public void setProcessVariables(ProcessVariable[] pvds)
+- public Vector getChildActivities(No parameters)
+- public void setChildActivities(Vector value)
+- public ProcessInstance createInstance(ProcessInstance instanceInCreating)
+- public int getCurrentStep(ProcessInstance instance)
+- public void setCurrentStep(ProcessInstance instance, int currStep)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void executeActivity(ProcessInstance instance)
+- public void beforeSerialization(No parameters)
+- public void afterDeserialization(No parameters)
+- protected void queueActivity(final Activity act, ProcessInstance instance_)
+- public void run(No parameters)
+- public void run(No parameters)
+- public void beforeCommit(TransactionContext tx)
+- public void beforeRollback(TransactionContext tx)
+- public void afterCommit(TransactionContext tx)
+- public void afterRollback(TransactionContext tx)
+- public void run(No parameters)
+- public void afterCommit(TransactionContext tx)
+- public void afterRollback(TransactionContext tx)
+- public void beforeCommit(TransactionContext tx)
+- public void beforeRollback(TransactionContext tx)
+- public ValidationContext validate(Map options)
+- public void skip(ProcessInstance instance)
+- public void compensate(ProcessInstance instance)
+- public void compensateOneStep(ProcessInstance instance)
+- public void compensateOneStep(ActivityInstance instance)
+- public void skipOneStep(ActivityInstance instance)
+- public void reset(ProcessInstance instance)
+- public void suspend(ProcessInstance instance)
+- public void stop(ProcessInstance instance)
+- public void stop(ProcessInstance instance,String status)
+- protected void onChanged(ProcessInstance instance)
+- protected void autoTag(Activity child)
+- public Activity findChildActivity(final Class type)
+- public void logic(Activity activity)
+- public Vector getPreviousActivitiesOf(Activity child)
+- public Vector getLastActivities(No parameters)
+- protected void gatherPropagatedActivitiesOf(ProcessInstance instance, Activity child, List list)
+- public boolean registerToProcessDefinition(boolean autoTagging, boolean checkCollision)
+- protected boolean compensateChild(ProcessInstance instance, Activity child)
+- public ActivityReference getInitiatorHumanActivityReference(final ProcessTransactionContext ptc)
+- public void logic(Activity activity)
+- public void usabilityCheck(Map values)
+- public Object getFieldValue(IDAO dao, Map genericContext)
+- public String getFieldName(No parameters)
+
+
+Class: RequestAndReceiveActivity
+File: src/src/org/uengine/kernel/RequestAndReceiveActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void queueActivity(final Activity act, final ActivityInstance instance)
+- public ProcessVariable getOutput(No parameters)
+- public void setOutput(ProcessVariable variable)
+
+
+Class: CompensatableActivity
+File: src/src/org/uengine/kernel/CompensatableActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void executeActivity(ProcessInstance instance)
+- public void compensate(ProcessInstance instance)
+
+
+Class: SwitchActivity
+File: src/src/org/uengine/kernel/SwitchActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- public void setConditions(Condition[] value)
+- public Activity getDefaultActivity(No parameters)
+- public boolean isOperateAsIfThenElse(No parameters)
+- public void setOperateAsIfThenElse(boolean operateAsIfThenElse)
+- public void setFinishedPathCount(ProcessInstance instance, int val)
+- public int getFinishedPathCount(ProcessInstance instance)
+- private Integer Serializable(Integer integer)
+- public void setAllPathCount(ProcessInstance instance, int val)
+- public int getAllPathCount(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void executeActivity(ActivityInstance instance)
+- public ValidationContext validate(Map options)
+- protected void gatherPropagatedActivitiesOf(ProcessInstance instance, Activity child, List list)
+- public void compensateOneStep(ProcessInstance instance)
+
+
+Class: AtomicHumanActivity
+File: src/src/org/uengine/kernel/AtomicHumanActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- public void executePreActivities(ProcessInstance instance)
+- public boolean interceptEvent(Activity activity, String command, ProcessInstance instance, Object payload)
+- public ValidationContext validate(Map options)
+
+
+Class: ApprovalLineActivity
+File: src/src/org/uengine/kernel/ApprovalLineActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public void setApprovalLineStatus(ProcessInstance instance, String status)
+- public String getApprovalLineStatus(ProcessInstance instance)
+- public ApprovalActivity getDraftActivity(No parameters)
+- public void logic(Activity activity)
+
+
+Class: MultipleWorkerActivity
+File: src/src/org/uengine/kernel/MultipleWorkerActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void executeActivity(ProcessInstance instance)
+- public RoleMapping getMultipleWorker(No parameters)
+- public void setMultipleWorker(RoleMapping mapping)
+
+
+Class: AtomicActivity
+File: src/src/org/uengine/kernel/AtomicActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void queueActivity(final Activity act, final ProcessInstance instance)
+
+
+Class: ReceiveAndReplyActivity
+File: src/src/org/uengine/kernel/ReceiveAndReplyActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void queueActivity(final Activity act, final ActivityInstance instance)
+- public ProcessVariable getOutput(No parameters)
+- public void setOutput(ProcessVariable variable)
+
+
+Class: SequenceActivity
+File: src/src/org/uengine/kernel/SequenceActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+No methods
+
+
+Class: LoopActivity
+File: src/src/org/uengine/kernel/LoopActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- public Condition getLoopingCondition(No parameters)
+- public void setLoopingCondition(Condition value)
+- public boolean isWorklistHistoryManagement(No parameters)
+- public void setWorklistHistoryManagement(boolean worklistHistoryManagement)
+- public void setLoopingCount(ProcessInstance instance, int val)
+- public int getLoopingCount(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- public void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: AllActivity
+File: src/src/org/uengine/kernel/AllActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void executeActivity(ProcessInstance instance)
+- protected void onChanged(ProcessInstance instance)
+- public Vector getPreviousActivitiesOf(Activity child)
+- public Vector getLastActivities(No parameters)
+- protected void gatherPropagatedActivitiesOf(ProcessInstance instance, Activity child, List list)
+- public void compensateOneStep(ProcessInstance instance)
+- public boolean isSerializable(Class cls)
+- public void serialize(Object sourceObj, OutputStream os, Hashtable extendedContext)
+- public Object deserialize(InputStream is, Hashtable extendedContext)
+- public void beforeDeploy(ProcessDefinition definition, ProcessTransactionContext tc, String folder,boolean isNew)
+- public void afterDeploy(String folder, ProcessDefinition definition, ProcessTransactionContext tc)
+
+
+Class: ScopeActivity
+File: src/src/org/uengine/kernel/ScopeActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- public ProcessVariable getProcessVariable(String pvName)
+- public void setProcessVariables(ProcessVariable[] pvds)
+- public void setEventHandlers(EventHandler[] eventHandlers)
+- public boolean isLeaveEventListenersEvenIfOutOfScope(No parameters)
+- public boolean isCollapsed(No parameters)
+- public void setCollapsed(boolean isCollapsed)
+- public void afterDeserialization(No parameters)
+- protected void beforeExecute(ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- public boolean fireEventHandlers(ProcessInstance instance, int triggerType, EventMessagePayload emp)
+- public boolean onMessage(ProcessInstance instance, Object payload)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- public EventHandler getEventHandler(String eventName)
+- public String getMessage(No parameters)
+- public boolean registerToProcessDefinition(boolean autoTagging, boolean checkCollision)
+- public void compensate(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: ProcessDefinition
+File: src/src/org/uengine/kernel/ProcessDefinition.java
+
+Inherits from: ScopeActivity
+
+No members
+
+Methods:
+- public Activity getActivity(String tracingTag)
+- public void setServiceDefinitions(ServiceDefinition[] sds)
+- public void addServiceDefinition(ServiceDefinition sd)
+- public String getDefaultFlowchartViewType(No parameters)
+- public void setDefaultFlowchartViewType(String viewType)
+- public String getDefaultFlowchartOption(No parameters)
+- public void setDefaultFlowchartViewOption(String viewOption)
+- public boolean isAbstract(No parameters)
+- public void setAbstract(boolean isAbstract)
+- public int getDuration(No parameters)
+- public void setDuration(int duration)
+- public int getSimulationInstanceCount(No parameters)
+- public void setSimulationInstanceCount(int simultationInstanceCount)
+- public int getSimulationInputFrequency(No parameters)
+- public void setSimulationInputFrequency(int simulationInputFrequency)
+- public int getSimulationInputFrequencyDeviation(No parameters)
+- public void setSimulationResources(SimulationResource[] simulationResources)
+- public void setReservedXmlTypes(QName[] names)
+- public void setMessageDefinitions(MessageDefinition[] definitions)
+- public ArrayList getRevisionInfoList(No parameters)
+- public void setRevisionInfoList(ArrayList revisionInfoList)
+- public void addRevisionInfo(RevisionInfo revisionInfo)
+- public void clearWithOutLastRevisionInfo(No parameters)
+- public String getWsdlLocation(No parameters)
+- public void setWsdlLocation(String string)
+- public String getEndpoint(No parameters)
+- public void setEndpoint(String string)
+- public boolean isArchive(No parameters)
+- public void setArchive(boolean boolean1)
+- public int getUEngineVersion(No parameters)
+- public void setUEngineVersion(int i)
+- public String getId(No parameters)
+- public void setId(String string)
+- public int getVersion(No parameters)
+- public void setVersion(int i)
+- public String getBelongingDefinitionId(No parameters)
+- public void setBelongingDefinitionId(String string)
+- public void setActivityFilters(ActivityFilter[] filters)
+- public String getTitle(No parameters)
+- public void setTitle(String string)
+- public boolean isAdhoc(No parameters)
+- public void setAdhoc(boolean b)
+- public String getShortDescription(No parameters)
+- public void setShortDescription(String string)
+- public boolean isInitiateByFirstWorkitem(No parameters)
+- public void setInitiateByFirstWorkitem(boolean b)
+- public void setWorklistFields(ListField[] worklistFields)
+- public HumanActivity getInitiatorHumanActivity(No parameters)
+- public void logic(Activity activity)
+- public void setInstanceListFields(ListField[] instanceListFields)
+- public void setWorkListFields(ListField[] workListFields)
+- public String getCurrentLocale(No parameters)
+- public void setCurrentLocale(String currentLocale)
+- public boolean isVolatile(No parameters)
+- public void setVolatile(boolean isVolatile)
+- public ActivityReference getInitiatorHumanActivityReference(final ProcessTransactionContext ptc)
+- public Calendar getModifiedDate(No parameters)
+- public void setModifiedDate(Calendar calendar)
+- public int getProcessType(No parameters)
+- public void setProcessType(int i)
+- public long getNextActivitySequence(No parameters)
+- public long getActivitySequence(No parameters)
+- public void setActivitySequence(long l)
+- public Calendar getDueDate(ProcessInstance instance)
+- public void setDueDate(ProcessInstance instance, Calendar dueDate)
+- public ProcessInstance createInstance(String name, Map options)
+- protected boolean registerActivity(Activity act, boolean autoTagging)
+- protected boolean registerActivity(Activity act, boolean autoTagging, boolean checkCollision)
+- protected void registerActivity(Activity act)
+- public ProcessDefinition getDefinition(String defVerId, ProcessTransactionContext ptc)
+- public void addMessageListener(ProcessInstance instance, MessageListener ml)
+- protected void addMessageListener(String message, ProcessInstance instance, String scope)
+- protected void removeMessageListener(String message, ProcessInstance instance, String scope)
+- protected void removeMessageListener(ProcessInstance instance, MessageListener ml)
+- protected Object fireMessage(String message, final ProcessInstance instance, Object payload, boolean payloadIsXML)
+- public Object fireMessage(String message, ProcessInstance instance, Object payload)
+- public Object fireMessageXML(String message, ProcessInstance instance, String payload)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void returnToMainProcess(ProcessInstance instance)
+- protected void returnToMainProcess(ProcessInstance instance, boolean skipped)
+- public void afterDeserialization(No parameters)
+- public void flowControl(String command, ProcessInstance instance, String tracingTag)
+- public String getTracingTag(No parameters)
+- public void beforeSerialization(No parameters)
+- public ValidationContext validate(Map options)
+- public void logic(Activity activity)
+- public ActivityDesigner createDesigner(No parameters)
+- public void reset(ProcessInstance instance)
+- public void stop(ProcessInstance instance)
+- public void stop(ProcessInstance instance,String status)
+- public String getQueuingMechanism(ProcessInstance instance)
+- public void setQueuingMechanism(ProcessInstance instance, String val)
+- public String getQueuingMechanism(ProcessInstance instance)
+- public void setQueuingMechanism(ProcessInstance instance, String val)
+- public String getAlias(No parameters)
+- public void setAlias(String value)
+- protected void beforeExecute(ProcessInstance instance)
+
+
+Class: HumanTestProcess
+File: src/src/org/uengine/kernel/HumanActivityTest.java
+
+Inherits from: ProcessDefinition
+
+No members
+
+No methods
+
+
+Class: HumanApprovalLineActivity
+File: src/src/org/uengine/kernel/HumanApprovalLineActivity.java
+
+Inherits from: ScopeActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public void setApprovalLineStatus(ProcessInstance instance, String status)
+- public String getApprovalLineStatus(ProcessInstance instance)
+- public void resetApprovalLine(No parameters)
+- public void addApprovalActivity(ProcessInstance instance, String approveType, String activityName, String approverEndpoint)
+- public HumanApprovalActivity getDraftActivity(No parameters)
+- public void logic(Activity activity)
+- protected void afterExecute(ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- public Role getReferencerRole(No parameters)
+- public void setReferencerRole(Role referencerRole)
+- public Role getReceiverRole(No parameters)
+- public void setReceiverRole(Role receiverRole)
+- public int getLoopingOption(No parameters)
+- public void setLoopingOption(int loopingOption)
+- public ProcessVariable getStatusOutPV(No parameters)
+- public void setStatusOutPV(ProcessVariable statusOut)
+
+
+Class: FormApprovalLineActivity
+File: src/src/org/uengine/kernel/FormApprovalLineActivity.java
+
+Inherits from: ScopeActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public void setApprovalLineStatus(ProcessInstance instance, String status)
+- public String getApprovalLineStatus(ProcessInstance instance)
+- public void resetApprovalLine(No parameters)
+- public void addApprovalActivity(ProcessInstance instance, String approveType, String activityName, String approverEndpoint)
+- public FormApprovalActivity getDraftActivity(No parameters)
+- public void logic(Activity activity)
+- protected void afterExecute(ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- public Role getReferencerRole(No parameters)
+- public void setReferencerRole(Role referencerRole)
+- public Role getReceiverRole(No parameters)
+- public void setReceiverRole(Role receiverRole)
+- public int getLoopingOption(No parameters)
+- public void setLoopingOption(int loopingOption)
+- public ProcessVariable getStatusOutPV(No parameters)
+- public void setStatusOutPV(ProcessVariable statusOut)
+
+
+Class: ReferenceBlockActivity
+File: src/src/org/uengine/kernel/ReferenceBlockActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- public Role getReferencerRole(No parameters)
+- public void setReferencerRole(Role referencerRole)
+- protected void queueActivity(Activity act, ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- protected void afterExecute(ProcessInstance instance)
+
+
+Class: TryCatchActivity
+File: src/src/org/uengine/kernel/TryCatchActivity.java
+
+Inherits from: ComplexActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+
+
+Class: FlagActivity
+File: src/src/org/uengine/kernel/FlagActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getFlag(No parameters)
+- public void setFlag(String flag)
+- protected void executeActivity(ProcessInstance instance)
+- public ActivitySelectionContext getFlagLocationForFlowChart(ProcessInstance instance, String flag)
+- public ActivitySelectionContext getFlagLocation(ProcessInstance instance, String flag)
+
+
+Class: SoundPlayActivity
+File: src/src/org/uengine/kernel/SoundPlayActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+- public void playSound(ProcessInstance instance)
+- public FileContext getSoundFile(No parameters)
+- public void setSoundFile(FileContext soundFile)
+- public String getSoundUrl(No parameters)
+- public void setSoundUrl(String soundUrl)
+- public boolean doCommand(ProcessInstance instance, String variableKey)
+
+
+Class: RoleAssignActivity
+File: src/src/org/uengine/kernel/RoleAssignActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public Role getRole(No parameters)
+- public void setRole(Role value)
+- public ProcessVariable getVariableForURI(No parameters)
+- public void setVariableForURI(ProcessVariable value)
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: DiscoverActivity
+File: src/src/org/uengine/kernel/DiscoverActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+No methods
+
+
+Class: SQLActivity
+File: src/src/org/uengine/kernel/SQLActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getSqlStmt(No parameters)
+- public void setSqlStmt(String value)
+- public ConnectionFactory getConnectionFactory(No parameters)
+- public void setConnectionFactory(ConnectionFactory factory)
+- public String getConnectionString(No parameters)
+- public void setConnectionString(String value)
+- public String getUserId(No parameters)
+- public void setUserId(String value)
+- public String getPassword(No parameters)
+- public void setPassword(String value)
+- public String getDriverClass(No parameters)
+- public void setDriverClass(String value)
+- public void setParameters(ParameterContext[] contexts)
+- public void setSelectMappings(ParameterContext[] selectMappings)
+- public boolean isQuery(No parameters)
+- public void setQuery(boolean b)
+- public boolean isApplySingleValueOnly(No parameters)
+- public void setApplySingleValueOnly(boolean applySingleValueOnly)
+- public boolean isReplaceWithBlankStringIfNull(No parameters)
+- public void setReplaceWithBlankStringIfNull(boolean replaceWithBlankStringIfNull)
+- public void executeActivity(ProcessInstance instance)
+- protected HashMap setResult(ProcessInstance instance, String varName, ResultSet rs, int colNum)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- public ValidationContext validate(Map options)
+
+
+Class: WebServiceActivity2
+File: src/src/org/uengine/kernel/WebServiceActivity2.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getEndpointAddress(No parameters)
+- public void setEndpointAddress(String endpointAddress)
+- public String getPortType(No parameters)
+- public void setPortType(String portType)
+- public String getOperation(No parameters)
+- public void setOperation(String operation)
+- public String getBinding(No parameters)
+- public void setBinding(String binding)
+- public String getRequestXML(No parameters)
+- public void setRequestXML(String requestXML)
+- public String getTestResponseXML(No parameters)
+- public void setTestResponseXML(String testResponseXML)
+- public void setxPathContexts(XPathContext[] xPathContexts)
+- public ProcessVariable getOutputXMLString(No parameters)
+- public void setOutputXMLString(ProcessVariable outputXMLString)
+- protected void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: NamedParameterSQLActivity
+File: src/src/org/uengine/kernel/NamedParameterSQLActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public ConnectionFactory getConnectionFactory(No parameters)
+- public void setConnectionFactory(ConnectionFactory factory)
+- public int getOperation(No parameters)
+- public void setOperation(int operation)
+- public String getSqlStatement(No parameters)
+- public void setSqlStatement(String sqlStatement)
+- public void setSqlArguments(ParameterContext[] sqlArguments)
+- public void setResultSet(ParameterContext[] resultSet)
+- protected void executeActivity(ProcessInstance instance)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- public ValidationContext validate(Map options)
+
+
+Class: EndActivity
+File: src/src/org/uengine/kernel/EndActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public boolean isEscalate(No parameters)
+- public void setEscalate(boolean escalate)
+- public int getEscalationLevel(No parameters)
+- public void setEscalationLevel(int escalationLevel)
+- public boolean isTerminateRunAndForgetSubProcess(No parameters)
+- public void setTerminateRunAndForgetSubProcess(boolean terminateRunAndForgetSubProcess)
+- public String getTerminateStatus(No parameters)
+- public void setTerminateStatus(String terminateStatus)
+- public int getStatus(No parameters)
+- public void setStatus(int status)
+- public void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: LocalNateOnMessengerActivity
+File: src/src/org/uengine/kernel/LocalNateOnMessengerActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String validate(Object arg0, Instance arg1)
+- public String getContents(No parameters)
+- public void setContents(String value)
+- public Role getToRole(No parameters)
+- public void setToRole(Role value)
+- public void executeActivity(ProcessInstance instance)
+- public void run(No parameters)
+
+
+Class: LocalEMailActivity
+File: src/src/org/uengine/kernel/LocalEMailActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getContents(No parameters)
+- public void setContents(String value)
+- public String getTitle(No parameters)
+- public void setTitle(String value)
+- public String getTo(No parameters)
+- public void setTo(String to)
+- public Role getToRole(No parameters)
+- public void setToRole(Role value)
+- public String getFrom(No parameters)
+- public void setFrom(String string)
+- public Role getFromRole(No parameters)
+- public void setFromRole(Role fromRole)
+- public String getCharacterSet(No parameters)
+- public void setCharacterSet(String characterSet)
+- public boolean isAppendTrackingLink(No parameters)
+- public void setAppendTrackingLink(boolean isAppendTrackingLink)
+- public void setAttachFiles(ProcessVariable[] attachFiles)
+- public void executeActivity(ProcessInstance instance)
+
+
+Class: ApprovalSubActivity
+File: src/src/org/uengine/kernel/ApprovalSubActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: BackActivity
+File: src/src/org/uengine/kernel/BackActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public void executeActivity(ProcessInstance instance)
+- public void logic(Activity activity)
+- public ActivitySelectionContext getTargetActivity(No parameters)
+- public void setTargetActivity(ActivitySelectionContext targetActivity)
+- public ProcessVariable getTargetActivityPV(No parameters)
+- public void setTargetActivityPV(ProcessVariable targetActivityPV)
+- public String getFlag(No parameters)
+- public void setFlag(String flag)
+- public int getTargetSource(No parameters)
+- public void setTargetSource(int targetSource)
+
+
+Class: FileGenerationActivity
+File: src/src/org/uengine/kernel/FileGenerationActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getFileName(No parameters)
+- public void setFileName(String fileName)
+- public String getContents(No parameters)
+- public void setContents(String contents)
+- public Role getFileReceiver(No parameters)
+- public void setFileReceiver(Role fileReceiver)
+- protected void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: BreakActivity
+File: src/src/org/uengine/kernel/BreakActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- protected void executeActivity(ProcessInstance instance)
+
+
+Class: LocalSMSActivity
+File: src/src/org/uengine/kernel/LocalSMSActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String validate(Object arg0, Instance arg1)
+- public String getContents(No parameters)
+- public void setContents(String value)
+- public Role getToRole(No parameters)
+- public void setToRole(Role value)
+- public void executeActivity(ProcessInstance instance)
+
+
+Class: ScriptActivity
+File: src/src/org/uengine/kernel/ScriptActivity.java
+
+Inherits from: DefaultActivity
+
+No members
+
+Methods:
+- public String getScript(No parameters)
+- public void setScript(String string)
+- public ProcessVariable getOut(No parameters)
+- public void setOut(ProcessVariable variable)
+- public int getLanguage(No parameters)
+- public void setLanguage(int language)
+- public Object scriptEngine(String scriptSmt)
+- protected void executeActivity(ProcessInstance instance)
+- public ValidationContext validate(Map options)
+
+
+Class: Activity
+File: src/src/org/uengine/kernel/Activity.java
+
+Base class (no parent)
+
+No members
+
+Methods:
+- public Activity getParentActivity(No parameters)
+- protected void setParentActivity(Activity parentAct)
+- public void clearParentActivity(No parameters)
+- public TextContext getName(No parameters)
+- public void setName(TextContext name)
+- public void setName(String name)
+- public TextContext getDescription(No parameters)
+- public void setDescription(TextContext string)
+- public String getTracingTag(No parameters)
+- public void setTracingTag(String tag)
+- public String getIconURL(No parameters)
+- public void setIconURL(String iconURL)
+- public int getCost(No parameters)
+- public void setCost(int i)
+- public Hashtable getExtendedAttributes(No parameters)
+- public void setExtendedAttributes(Hashtable value)
+- public void setExtendedAttribute(String k, Object value)
+- public int getRetryLimit(No parameters)
+- public void setRetryLimit(int i)
+- public int getRetryDelay(No parameters)
+- public void setRetryDelay(int l)
+- public boolean isHidden(No parameters)
+- public void setHidden(boolean b)
+- public ActivityDesigner getDesigner(No parameters)
+- public void addProperyChangeListener(PropertyChangeListener pcl)
+- public void removeProperyChangeListener(PropertyChangeListener pcl)
+- public void clearProperyChangeListeners(No parameters)
+- public void firePropertyChangeEvent(PropertyChangeEvent pce)
+- public boolean isDynamicChangeAllowed(No parameters)
+- public void setDynamicChangeAllowed(boolean b)
+- public boolean isQueuingEnabled(No parameters)
+- public void setQueuingEnabled(boolean b)
+- public String getActivityIcon(No parameters)
+- public void setActivityIcon(String activityIconURL)
+- public String getStatusCode(No parameters)
+- public void setStatusCode(String statusCode)
+- public boolean isFaultTolerant(No parameters)
+- public void setFaultTolerant(boolean isErrorTolerant)
+- public Calendar getStartedTime(ProcessInstance instance)
+- public void setStartedTime(ProcessInstance instance, Calendar theTime)
+- public String getBusinessStatus(ProcessInstance instance)
+- public void setBusinessStatus(ProcessInstance instance, String value)
+- public Calendar getEndTime(ProcessInstance instance)
+- public void setEndTime(ProcessInstance instance, Calendar theTime)
+- public ProcessInstance createInstance(ProcessInstance instanceInCreating)
+- public ProcessInstance createInstance(String instanceId, Map options)
+- public ProcessInstance createInstance(No parameters)
+- public Activity getRootActivity(No parameters)
+- public ProcessDefinition getProcessDefinition(No parameters)
+- protected void beforeExecute(ProcessInstance instance)
+- protected void afterComplete(ProcessInstance instance)
+- protected void afterExecute(ProcessInstance instance)
+- protected void executeActivity(ProcessInstance instance)
+- protected void onEvent(String command, ProcessInstance instance, Object payload)
+- protected void onChanged(ProcessInstance instance)
+- public void fireEvent(String event, ProcessInstance instance, Object payload)
+- public void fireComplete(ProcessInstance instance)
+- public void fireSkipped(ProcessInstance instance)
+- public void fireCompensate(ProcessInstance instance)
+- public void fireFault(ProcessInstance instance, FaultContext faultContext)
+- public void fireFault(ProcessInstance instance, Exception e)
+- public void fireResume(ProcessInstance instance)
+- public void fireChanged(ProcessInstance instance)
+- public void stop(ProcessInstance instance)
+- public void stop(ProcessInstance instance,String status)
+- public void suspend(ProcessInstance instance)
+- public void resume(ProcessInstance instance)
+- public void reset(ProcessInstance instance)
+- public void skip(ProcessInstance instance)
+- public void compensate(ProcessInstance instance)
+- public void compensateOneStep(ProcessInstance instance)
+- public void change(ProcessInstance instance)
+- public ActivityDesigner createDesigner(No parameters)
+- public Map getActivityDetails(ProcessInstance inst, String locale)
+- public ValidationContext validate(Map options)
+- public void usabilityCheck(Map checkingValues)
+- protected String getActivityLabel(No parameters)
+- public String getStatus(ProcessInstance instance)
+- public void setStatus(ProcessInstance instance, String status)
+- public int getRetryCount(ProcessInstance instance)
+- public void setRetryCount(ProcessInstance instance, int retryCnt)
+- public String getElapsedTime(ProcessInstance instance)
+- public long getElapsedTimeAsLong(ProcessInstance instance)
+- public Activity findParentActivity(Class type)
+- public Object clone(No parameters)
+- public Vector getPreviousActivities(No parameters)
+- public StringBuffer evaluateContent(ProcessInstance instance, String expression, ValidationContext validationContext)
+- public StringBuffer evaluateContent(ProcessInstance instance, String expression)
+- protected void gatherPropagatedActivities(ProcessInstance instance, List list)
+- public List getPropagatedActivities(ProcessInstance instance)
+- public List compensateToThis(ProcessInstance instance)
+- public List compensateToThis(ProcessInstance instance, boolean compensateAndResume)
+- protected void firePropertyChangeEventToActivityFilters(ProcessInstance instance, String propertyName, Object changedValue)
+- protected void fireEventToActivityFilters(ProcessInstance instance, String eventName, Object payload)
+- private int getTriggeringMethodFromEventName(String eventName)
+- public boolean registerToProcessDefinition(boolean autoTagging, boolean checkCollision)
+- public String toString(No parameters)
+- public boolean equals(Object obj)
+- public boolean isSuccessorOf(Activity complexActivity)
+- public boolean isAncestorOf(Activity activity)
+- public GraphActivity toGraph(Hashtable graph2BlockMap)
+- public Transferable createTransferrable(No parameters)
+- public boolean isDataFlavorSupported(DataFlavor flavor)
+- public Object getTransferData(DataFlavor flavor)
+- public void executeTest(ProcessInstance instance, ProcessInstance testInstance)
+
+
