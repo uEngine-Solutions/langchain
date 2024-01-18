@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC 
+"-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" 
+"http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+	
+<ejb-jar>
+ <enterprise-beans>
+ 	
+	<session>
+		<ejb-name>ProcessManagerEJB</ejb-name>
+		<home>org.uengine.processmanager.ProcessManagerHomeRemote</home>
+		<remote>org.uengine.processmanager.ProcessManagerRemote</remote>
+		<ejb-class>org.uengine.processmanager.ProcessManagerBean</ejb-class>
+		<session-type>Stateful</session-type>
+		<transaction-type>Container</transaction-type>
+		
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessDefinitionRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryLocal</local>
+			<ejb-link>ProcDefEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessInstanceRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processinstance.ProcessInstanceRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processinstance.ProcessInstanceRepositoryLocal</local>
+			<ejb-link>ProcInstEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessVariableRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processvariable.ProcessVariableRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processvariable.ProcessVariableRepositoryLocal</local>
+			<ejb-link>ProcVarEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>RoleMappingRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.rolemapping.RoleMappingRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.rolemapping.RoleMappingRepositoryLocal</local>
+			<ejb-link>RoleMpEJB</ejb-link>
+		</ejb-local-ref>
+
+	  <resource-ref>
+		   <res-ref-name>jdbc/uEngineDB</res-ref-name>
+		   <res-type>javax.sql.DataSource</res-type>
+		   <res-auth>Container</res-auth>
+	  </resource-ref>
+
+	</session>
+	
+	<message-driven>
+		<ejb-name>uEngineWorkProcessorEJB</ejb-name>
+		<ejb-class>org.uengine.queue.workqueue.WorkProcessorBean</ejb-class>
+		<transaction-type>Container</transaction-type>
+		<message-selector>MessageFormat = 'Version 1.0'</message-selector>
+		<acknowledge-mode>auto-acknowledge</acknowledge-mode>       
+		<message-driven-destination>
+			<destination-type>javax.jms.Queue</destination-type>
+		</message-driven-destination>      
+		
+		<security-identity>
+			<run-as><role-name>everyone</role-name></run-as>
+		</security-identity>
+		<resource-ref>
+			<res-ref-name>jms/QueueFactory</res-ref-name>
+			<res-type>javax.jms.QueueConnectionFactory</res-type>
+			<res-auth>Container</res-auth>
+		</resource-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessDefinitionRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryLocal</local>
+			<ejb-link>ProcDefEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessInstanceRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processinstance.ProcessInstanceRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processinstance.ProcessInstanceRepositoryLocal</local>
+			<ejb-link>ProcInstEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessVariableRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processvariable.ProcessVariableRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processvariable.ProcessVariableRepositoryLocal</local>
+			<ejb-link>ProcVarEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>RoleMappingRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.rolemapping.RoleMappingRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.rolemapping.RoleMappingRepositoryLocal</local>
+			<ejb-link>RoleMpEJB</ejb-link>
+		</ejb-local-ref>
+	</message-driven>
+	
+	<message-driven>
+		<ejb-name>uEngineMessageProcessorEJB</ejb-name>
+		<ejb-class>org.uengine.queue.messagequeue.MessageProcessorBean</ejb-class>
+		<transaction-type>Container</transaction-type>
+		<message-selector>MessageFormat = 'Version 1.0'</message-selector>
+		<acknowledge-mode>auto-acknowledge</acknowledge-mode>       
+		<message-driven-destination>
+			<destination-type>javax.jms.Queue</destination-type>
+		</message-driven-destination>      
+		
+		<security-identity>
+			<run-as><role-name>everyone</role-name></run-as>
+		</security-identity>
+		<resource-ref>
+			<res-ref-name>jms/QueueFactory</res-ref-name>
+			<res-type>javax.jms.QueueConnectionFactory</res-type>
+			<res-auth>Container</res-auth>
+		</resource-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessDefinitionRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryLocal</local>
+			<ejb-link>ProcDefEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessInstanceRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processinstance.ProcessInstanceRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processinstance.ProcessInstanceRepositoryLocal</local>
+			<ejb-link>ProcInstEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessVariableRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processvariable.ProcessVariableRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processvariable.ProcessVariableRepositoryLocal</local>
+			<ejb-link>ProcVarEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>RoleMappingRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.rolemapping.RoleMappingRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.rolemapping.RoleMappingRepositoryLocal</local>
+			<ejb-link>RoleMpEJB</ejb-link>
+		</ejb-local-ref>
+	</message-driven>
+	
+	<message-driven>
+		<ejb-name>uEngineFaultProcessorEJB</ejb-name>
+		<ejb-class>org.uengine.queue.faultqueue.FaultProcessorBean</ejb-class>
+		<transaction-type>Container</transaction-type>
+		<message-selector>MessageFormat = 'FaultMessage Version 1.0'</message-selector>
+		<acknowledge-mode>auto-acknowledge</acknowledge-mode>       
+		<message-driven-destination>
+			<destination-type>javax.jms.Queue</destination-type>
+		</message-driven-destination>      
+		
+		<security-identity>
+			<run-as><role-name>everyone</role-name></run-as>
+		</security-identity>
+		<resource-ref>
+			<res-ref-name>jms/QueueFactory</res-ref-name>
+			<res-type>javax.jms.QueueConnectionFactory</res-type>
+			<res-auth>Container</res-auth>
+		</resource-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessDefinitionRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryLocal</local>
+			<ejb-link>ProcDefEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessInstanceRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processinstance.ProcessInstanceRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processinstance.ProcessInstanceRepositoryLocal</local>
+			<ejb-link>ProcInstEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>ProcessVariableRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.processvariable.ProcessVariableRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.processvariable.ProcessVariableRepositoryLocal</local>
+			<ejb-link>ProcVarEJB</ejb-link>
+		</ejb-local-ref>
+		<ejb-local-ref>
+			<ejb-ref-name>RoleMappingRepositoryHomeLocal</ejb-ref-name>  
+			<ejb-ref-type>Entity</ejb-ref-type>
+			<local-home>org.uengine.persistence.rolemapping.RoleMappingRepositoryHomeLocal</local-home>
+			<local>org.uengine.persistence.rolemapping.RoleMappingRepositoryLocal</local>
+			<ejb-link>RoleMpEJB</ejb-link>
+		</ejb-local-ref>
+	</message-driven>
+	
+	<entity>
+		<ejb-name>ProcDefEJB</ejb-name>
+		<local-home>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryHomeLocal</local-home>
+		<local>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryLocal</local>
+		<ejb-class>org.uengine.persistence.processdefinition.ProcessDefinitionRepositoryBean</ejb-class>
+		<persistence-type>Container</persistence-type>
+		<prim-key-class>java.lang.Long</prim-key-class>
+		<reentrant>False</reentrant>
+		<cmp-version>2.x</cmp-version>
+
+		<abstract-schema-name>ProcDef</abstract-schema-name>
+		
+		<cmp-field><field-name>DefId</field-name></cmp-field>
+		<cmp-field><field-name>description</field-name></cmp-field>
+		<cmp-field><field-name>parentFolder</field-name></cmp-field>
+		<cmp-field><field-name>isFolder</field-name></cmp-field>
+		<cmp-field><field-name>objType</field-name></cmp-field>
+		<cmp-field><field-name>isAdhoc</field-name></cmp-field>
+		<cmp-field><field-name>isDeleted</field-name></cmp-field>
+		<cmp-field><field-name>ProdVerId</field-name></cmp-field>
+		<cmp-field><field-name>ProdVer</field-name></cmp-field>
+		<cmp-field><field-name>name</field-name></cmp-field>
+		<cmp-field><field-name>alias</field-name></cmp-field>
+
+		<primkey-field>DefId</primkey-field>
+
+		<security-identity><use-caller-identity/></security-identity>
+
+		<query>
+			<query-method>
+			  <method-name>findAllProcessDefinitions</method-name>
+			  <method-params/>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDef p where p.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByFolder</method-name>
+			  <method-params>
+			  		<method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDef p WHERE p.parentFolder = ?1 and p.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByName</method-name>
+			  <method-params>
+			  		<method-param>java.lang.String</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDef p WHERE p.name = ?1 and p.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByAlias</method-name>
+			  <method-params>
+			  		<method-param>java.lang.String</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDef p WHERE p.alias = ?1 and p.isDeleted = false
+			</ejb-ql>
+		</query>
+	</entity>
+	
+	<entity>
+		<ejb-name>ProcDefVerEJB</ejb-name>
+		<local-home>org.uengine.persistence.processdefinitionversion.ProcessDefinitionVersionRepositoryHomeLocal</local-home>
+		<local>org.uengine.persistence.processdefinitionversion.ProcessDefinitionVersionRepositoryLocal</local>
+		<ejb-class>org.uengine.persistence.processdefinitionversion.ProcessDefinitionVersionRepositoryBean</ejb-class>
+		<persistence-type>Container</persistence-type>
+		<prim-key-class>java.lang.Long</prim-key-class>
+		<reentrant>False</reentrant>
+		<cmp-version>2.x</cmp-version>
+
+		<abstract-schema-name>ProcDefVer</abstract-schema-name>
+		
+		<cmp-field><field-name>DefVerId</field-name></cmp-field>
+		<cmp-field><field-name>filePath</field-name></cmp-field>
+		<cmp-field><field-name>ver</field-name></cmp-field>
+		<cmp-field><field-name>defId</field-name></cmp-field>
+		<cmp-field><field-name>defName</field-name></cmp-field>
+		<cmp-field><field-name>modDate</field-name></cmp-field>
+		<cmp-field><field-name>prodStartDate</field-name></cmp-field>
+		<cmp-field><field-name>isDeleted</field-name></cmp-field>
+
+		<primkey-field>DefVerId</primkey-field>
+
+		<security-identity><use-caller-identity/></security-identity>
+
+		<query>
+			<query-method>
+			  <method-name>findAllVersions</method-name>
+			  <method-params>
+			  		<method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDefVer p WHERE p.defId = ?1 AND p.ver &lt;&gt; -1 and p.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByDefinitionAndVersion</method-name>
+			  <method-params>
+			  		<method-param>java.lang.Long</method-param>
+			  		<method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( p ) FROM ProcDefVer p WHERE p.defId = ?1 AND p.ver = ?2 and p.isDeleted = false
+			</ejb-ql>
+		</query>
+	</entity>
+	
+	<entity>
+		<ejb-name>ProcInstEJB</ejb-name>
+		<local-home>org.uengine.persistence.processinstance.ProcessInstanceRepositoryHomeLocal</local-home>
+		<local>org.uengine.persistence.processinstance.ProcessInstanceRepositoryLocal</local>
+		<ejb-class>org.uengine.persistence.processinstance.ProcessInstanceRepositoryBean</ejb-class>
+		<persistence-type>Container</persistence-type>
+		<prim-key-class>java.lang.Long</prim-key-class>
+		<reentrant>False</reentrant>
+		<cmp-version>2.x</cmp-version>
+
+		<abstract-schema-name>ProcInst</abstract-schema-name>
+		
+		<cmp-field><field-name>instId</field-name></cmp-field>
+		<cmp-field><field-name>defVerId</field-name></cmp-field>
+		<cmp-field><field-name>defId</field-name></cmp-field>
+		<cmp-field><field-name>defPath</field-name></cmp-field>
+		<cmp-field><field-name>defName</field-name></cmp-field>
+		<cmp-field><field-name>startedDate</field-name></cmp-field>
+		<cmp-field><field-name>finishedDate</field-name></cmp-field>
+		<cmp-field><field-name>modDate</field-name></cmp-field>
+		<cmp-field><field-name>status</field-name></cmp-field>
+		<cmp-field><field-name>info</field-name></cmp-field>
+		<cmp-field><field-name>name</field-name></cmp-field>
+		<cmp-field><field-name>isDeleted</field-name></cmp-field>
+		<cmp-field><field-name>isAdhoc</field-name></cmp-field>
+		<cmp-field><field-name>isArchive</field-name></cmp-field>
+		<cmp-field><field-name>isSubProcess</field-name></cmp-field>
+		<cmp-field><field-name>rootInstId</field-name></cmp-field>
+		<cmp-field><field-name>mainInstId</field-name></cmp-field>
+		<cmp-field><field-name>mainDefVerId</field-name></cmp-field>
+		<cmp-field><field-name>mainActTrcTag</field-name></cmp-field>
+		<cmp-field><field-name>absTrcPath</field-name></cmp-field>
+		<cmp-field><field-name>dontReturn</field-name></cmp-field>
+		<primkey-field>instId</primkey-field>
+
+		<security-identity><use-caller-identity/></security-identity>
+
+		<query>
+			<query-method>
+			  <method-name>findAllProcessInstances</method-name>
+			  <method-params/>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i where i.status &lt;&gt; 'Completed' and i.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findAllProcessArchives</method-name>
+			  <method-params/>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i where i.status = 'Complete' and i.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByDefinition</method-name>
+			  <method-params>
+				  <method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i WHERE i.defId = ?1
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByDefinitionVersion</method-name>
+			  <method-params>
+				  <method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i WHERE i.defVerId = ?1
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByStatus</method-name>
+			  <method-params>
+				  <method-param>java.lang.String</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i WHERE i.status = ?1 and i.isDeleted = false
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method> 
+			  <method-name>findByDefinitionAndStatus</method-name>
+			  <method-params>
+				  <method-param>java.lang.Long</method-param>
+				  <method-param>java.lang.String</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( i ) FROM ProcInst i WHERE i.defId = ?1 AND i.status = ?2 and i.isDeleted = false
+			</ejb-ql>
+		</query>
+	</entity>
+	
+	<entity>
+		<ejb-name>ProcVarEJB</ejb-name>
+		<local-home>org.uengine.persistence.processvariable.ProcessVariableRepositoryHomeLocal</local-home>
+		<local>org.uengine.persistence.processvariable.ProcessVariableRepositoryLocal</local>
+		<ejb-class>org.uengine.persistence.processvariable.ProcessVariableRepositoryBean</ejb-class>
+		<persistence-type>Container</persistence-type>
+		<prim-key-class>java.lang.Long</prim-key-class>
+		<reentrant>False</reentrant>
+		<cmp-version>2.x</cmp-version>
+
+		<abstract-schema-name>ProcVar</abstract-schema-name>
+		
+		<cmp-field><field-name>VarId</field-name></cmp-field>
+		<cmp-field><field-name>instId</field-name></cmp-field>
+
+		<cmp-field><field-name>dataType</field-name></cmp-field>
+		<cmp-field><field-name>valueString</field-name></cmp-field>
+		<cmp-field><field-name>valueLong</field-name></cmp-field>
+		<cmp-field><field-name>valueBoolean</field-name></cmp-field>
+		<cmp-field><field-name>valueDate</field-name></cmp-field>
+		<cmp-field><field-name>VarIndex</field-name></cmp-field>
+		<cmp-field><field-name>TrcTag</field-name></cmp-field>
+		<cmp-field><field-name>IsProperty</field-name></cmp-field>
+		<cmp-field><field-name>ModDate</field-name></cmp-field>
+		<cmp-field><field-name>KeyName</field-name></cmp-field>
+		<cmp-field><field-name>KeyString</field-name></cmp-field>
+
+		<primkey-field>VarId</primkey-field>
+
+		<security-identity><use-caller-identity/></security-identity>
+
+		<query>
+			<query-method>
+			  <method-name>findAllProcessVariables</method-name>
+			  <method-params/>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT( v ) FROM ProcVar v
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByInstanceId</method-name>
+			  <method-params>
+			    	<method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			   SELECT OBJECT(v) FROM ProcVar v WHERE v.instId = ?1
+			</ejb-ql>
+		</query>
+    </entity>
+    
+	<entity>
+		<ejb-name>RoleMpEJB</ejb-name>
+		<local-home>org.uengine.persistence.rolemapping.RoleMappingRepositoryHomeLocal</local-home>
+		<local>org.uengine.persistence.rolemapping.RoleMappingRepositoryLocal</local>
+		<ejb-class>org.uengine.persistence.rolemapping.RoleMappingRepositoryBean</ejb-class>
+		<persistence-type>Container</persistence-type>
+		<prim-key-class>java.lang.Long</prim-key-class>
+		<reentrant>False</reentrant>
+		<cmp-version>2.x</cmp-version>
+
+		<abstract-schema-name>RoleMp</abstract-schema-name>
+		
+		<cmp-field><field-name>roleMappingId</field-name></cmp-field>
+		<cmp-field><field-name>instId</field-name></cmp-field>
+		<cmp-field><field-name>roleName</field-name></cmp-field>
+		<cmp-field><field-name>endpoint</field-name></cmp-field>
+		<cmp-field><field-name>value</field-name></cmp-field>
+		<cmp-field><field-name>resName</field-name></cmp-field>
+
+		<primkey-field>roleMappingId</primkey-field>
+
+		<security-identity><use-caller-identity/></security-identity>
+
+		<query>
+			<query-method>
+			  <method-name>findByInstanceIdAndRoleName</method-name>
+			  <method-params>
+			    <method-param>java.lang.Long</method-param>
+				<method-param>java.lang.String</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			    SELECT OBJECT(rp) FROM RoleMp rp WHERE rp.instId = ?1 AND rp.roleName = ?2
+			</ejb-ql>
+		</query>
+		<query>
+			<query-method>
+			  <method-name>findByInstanceId</method-name>
+			  <method-params>
+			    	<method-param>java.lang.Long</method-param>
+			  </method-params>
+			</query-method>
+			<ejb-ql>
+			   SELECT OBJECT(rp) FROM RoleMp rp WHERE rp.instId = ?1
+			</ejb-ql>
+		</query>
+    </entity> </enterprise-beans>
+	
+ <assembly-descriptor>
+   <security-role>
+     <role-name>everyone</role-name>
+   </security-role>
+   <method-permission>
+     <role-name>everyone</role-name>
+     <method>
+         <ejb-name>ProcessManagerEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineWorkProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineMessageProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineFaultProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcDefEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcInstEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcVarEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>RoleMpEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+   </method-permission>
+   
+   <container-transaction>
+     <method>
+        <ejb-name>ProcessManagerEJB</ejb-name>
+        <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineWorkProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineMessageProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>uEngineFaultProcessorEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcDefEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcInstEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>ProcVarEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <method>
+         <ejb-name>RoleMpEJB</ejb-name>
+         <method-name>*</method-name>
+     </method>
+     <trans-attribute>Required</trans-attribute>
+   </container-transaction>   
+   
+   <!--container-transaction>
+     <method>
+        <ejb-name>ProcessManagerEJB</ejb-name>
+        <method-name>setFault</method-name>
+     </method>
+     <trans-attribute>RequiresNew</trans-attribute>
+   </container-transaction-->
+
+ </assembly-descriptor>
+
+</ejb-jar>

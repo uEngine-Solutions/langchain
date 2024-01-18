@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jbosscmp-jdbc PUBLIC
+   "-//JBoss//DTD JBOSSCMP-JDBC 3.2//EN"
+   "http://www.jboss.org/j2ee/dtd/jbosscmp-jdbc_3_2.dtd">
+
+<jbosscmp-jdbc>
+   <defaults>
+      <datasource>java:/uEngineDS</datasource>
+      <!--datasource-mapping>Oracle9i</datasource-mapping-->
+      <!--datasource-mapping>mySQL</datasource-mappingp-->
+      <!--datasource-mapping>DB2</datasource-mapping-->
+      <datasource-mapping>Hypersonic SQL</datasource-mapping>
+      <create-table>false</create-table>
+      <remove-table>false</remove-table>
+   </defaults>
+   
+	 <enterprise-beans>
+	  <entity>
+	      <ejb-name>ProcDefEJB</ejb-name>
+	      <table-name>BPM_ProcDef</table-name>
+	  </entity>
+	  <entity>
+	      <ejb-name>ProcDefVerEJB</ejb-name>
+	      <table-name>BPM_ProcDefVer</table-name>
+	  </entity>
+	  <entity>
+	      <ejb-name>ProcInstEJB</ejb-name>
+	      <table-name>BPM_ProcInst</table-name>
+	  </entity>
+	  <entity>
+	      <ejb-name>ProcVarEJB</ejb-name>
+	      <table-name>BPM_ProcVar</table-name>
+	      
+	      <load-groups>
+                <load-group>
+                    <load-group-name>basic</load-group-name>
+                    <field-name>dataType</field-name>
+                    <field-name>valueString</field-name>
+                    <field-name>valueLong</field-name>
+                    <field-name>valueBoolean</field-name>
+                    <field-name>valueDate</field-name>
+                </load-group>
+            </load-groups>
+	      
+	      <query>
+                <query-method>
+                    <method-name>findByInstanceId</method-name>
+					<method-params>
+					    	<method-param>java.lang.Long</method-param>
+					</method-params>
+                </query-method>
+                <jboss-ql><![CDATA[
+                	SELECT OBJECT(v) FROM ProcVar v WHERE v.instId = ?1
+                 ]]></jboss-ql>
+                <read-ahead>
+                    <strategy>on-find</strategy>
+                    <page-size>30</page-size>
+                    <eager-load-group>basic</eager-load-group>
+                </read-ahead>
+          </query>
+	      
+	  </entity>
+	  <entity>
+	      <ejb-name>RoleMpEJB</ejb-name>
+	      <table-name>BPM_RoleMapping</table-name>
+	  </entity>
+	</enterprise-beans>
+</jbosscmp-jdbc>
+

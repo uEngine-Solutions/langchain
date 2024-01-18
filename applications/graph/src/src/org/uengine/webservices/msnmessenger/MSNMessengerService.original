@@ -1,0 +1,7 @@
+package org.uengine.webservices.msnmessenger;
+
+public interface MSNMessengerService{
+
+	public void sendMessage(String to, String content) throws java.rmi.RemoteException;
+	
+}

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!-- ======================================================================= -->
+<!-- build file                                                       -->
+<!-- ======================================================================= -->
+
+<project name="uEngine" default="makeJar" basedir=".">
+	<property file="../settings/build.properties"/>
+    <property environment="env"/>
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="build.dir" value="${basedir}/bin"/>
+    <property name="build.classes.dir" value="${basedir}/bin"/>
+    <property name="was.home" value="C:/down/JEUS4.2"/>
+    <property name="was.deploy.path" value="${was.home}/webhome/servlet_home/webapps/uengine-web/WEB-INF/lib"/>
+    <property name="webapp.jws.dir" value="${was.home}/webhome/servlet_home/webapps/uengine-web/processmanager"/>
+    <property name="was.deploy.class.path" value="${was.home}/webhome/servlet_home/webapps/uengine-web/WEB-INF/classes"/>
+    <property name="uengine.home" value="${env.UENGINE_HOME}"/>
+ 
+  <!-- Build classpath -->
+  <path id="classpath">
+    <fileset dir="${lib.dir}">
+        <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  
+  	<target name="signjar">
+		<echo message="jarfile=${file.dir}/${file.name}"/>
+		<signjar
+			keystore="${uengine.home}/lib/uenginestore"
+			storepass="jinyoungj"
+			keypass="jinyoungj"
+			signedjar="${webapp.jws.dir}/signed${file.name}"
+			jar="${file.dir}/${file.name}" 
+			alias="uenginetools"
+		/>
+	</target>
+    <target name="generateProcessDesignerJWS">
+	<!-- generate signed jar for processdesigner --> 
+	<antcall target="signjar">
+	    <param name="file.name" value="uengine.jar"/>
+	    <param name="file.dir" value="${was.deploy.path}"/>
+	</antcall>
+  </target>
+  
+
+  <!-- =================================================================== -->
+  <!-- Prepares the build directory                                        -->
+  <!-- =================================================================== -->
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build.classes.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Compiles the source code                                            -->
+  <!-- =================================================================== -->
+
+  <target name="compile" depends="prepare">  
+	<delete>
+		<!--fileset dir="${build.classes.dir}"-->
+		<fileset dir="${was.deploy.class.path}">
+			<include name="test/**/*.class"/>
+			<include name="com/**/*.class"/>
+			<include name="org/uengine/processmanager/**/*.class"/>
+			<include name="org/uengine/usermanager/**/*.class"/>
+			<include name="org/uengine/persistence/**/*.class"/>
+			<include name="org/uengine/queue/workqueue/**/*.class"/>
+		</fileset>
+	</delete>
+	
+	<!--copy todir="${build.classes.dir}/org/uengine/kernel/images">
+		<fileset dir="${src.dir}/org/uengine/kernel/images">
+ 			<include name="*.gif"/>
+		</fileset>
+	</copy-->
+	
+	<copy todir="${build.classes.dir}">
+		<fileset dir="${src.dir}">
+		      	  <include name="**/*.xml"/>
+		      	  <include name="**/*.gif"/>
+		      	  <include name="**/*.properties"/>
+		</fileset>
+	</copy> 
+
+    <javac srcdir="${src.dir}"
+           destdir="${build.classes.dir}"
+           debug="on"
+           deprecation="on"
+           optimize="off"
+           includes="**">
+            <classpath refid="classpath"/>
+    </javac>
+  </target>
+  
+  <target name="makeJar" depends="compile">
+      <jar jarfile="${was.deploy.path}/uengine.jar">
+      <fileset dir="${build.classes.dir}">
+      	  <include name="com/**/*.class"/>
+      	  <include name="**/*.class"/>
+      	  <include name="**/*.xml"/>
+      	  <include name="**/*.gif"/>
+      	  <include name="**/*.properties"/>
+      	  <exclude name="org/uengine/example/client/**/*.class"/>
+      	  <exclude name="com/liferay/**/*.class"/>
+      	  <!--exclude name="org/uengine/processdesigner/**/*.class"/-->
+      </fileset>
+      <!--fileset dir="${src.resources}/beans/">
+          <include name="**/*.xml"/>
+      </fileset-->
+     <!--jar jarfile="${build.dir}/uengine.jar">
+      <fileset dir="${was.deploy.path}/uengine.jar">
+      	  <include name="**/*.*"/>
+      </fileset>
+     </jar-->
+     </jar>
+     
+     <antcall target="generateProcessDesignerJWS"/>
+     
+     
+  </target>
+
+ 
+  <!-- =================================================================== -->
+  <!-- Deploy Activity Component to running uEngine                        -->
+  <!-- =================================================================== -->
+
+  <!-- =================================================================== -->
+  <!-- Generate Axis WebService Stub                                       
+	USAGE: ant GenerateServiceStub -Dparam.service=uEngineProcessManage
+	rService -Dparam.stubClassPath=org/uengine/webservices/processmanager -Dparam.stubClassPackage=org.uengine.webservices.p
+	rocessmanager														   -->											
+  <!-- =================================================================== -->
+
+  
+  <!-- =================================================================== -->
+  <!-- Deploy Web Service to uEngine                                       -->
+  <!-- =================================================================== -->
+
+	
+  <!-- =================================================================== -->
+  <!-- Web Service Deploy                                                  
+	USAGE:  
+	ant deployWebService -Dparam.stubClassPath=services/uEngineProcessManagerService/org/uengine/webservices/processmanager
+  																		   -->
+  <!-- =================================================================== -->
+
+
+  
+  <!-- =================================================================== -->
+  <!-- Install / Configuration                                             -->
+  <!-- =================================================================== -->
+  
+  
+  <!-- =================================================================== -->
+  <!-- Runs the tools / tests                                              -->
+  <!-- =================================================================== -->
+
+
+
+  <!-- =================================================================== -->
+  <!-- Java Web Start support		                                       -->
+  <!-- =================================================================== -->
+  
+</project>

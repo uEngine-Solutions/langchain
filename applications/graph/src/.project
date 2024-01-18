@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>uEngine</name>
+	<comment>@key 32303034303631342075456E67696E65 </comment>
+	<projects>
+		<project>metaworks2</project>
+		<project>settings</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.omondo.uml.std.Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.omondo.uml.std.Nature</nature>
+	</natures>
+</projectDescription>

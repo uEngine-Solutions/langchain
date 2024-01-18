@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="_generation_" name="XDoclet Generator">
+<path id="xdoclet.classpath"><pathelement location="bin"/>
+<pathelement location="C:/j2sdk1.4.0_01/jre/lib/rt.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/activation.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/bsf.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/concurrent.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/getopt.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/gnu-regexp.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jacorb.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jakarta-poi-1.5.1-final-20020615.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jaxrpc.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbossall-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-common-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbosscx-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbossha-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-iiop-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-j2ee.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-jaas.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbossjmx-ant.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-jsr77-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbossmq-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-net-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jbosssx-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-system-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jboss-transaction-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jcert.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jmx-connector-client-factory.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jmx-ejb-connector-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jmx-invoker-adaptor-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jmx-rmi-connector-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jnet.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jnp-client.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/js.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jsse.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/jxl.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/log4j.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/log4j-1.2.8.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/mail.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/saaj.jar"/>
+<pathelement location="C:/uengine/standalone/was/client/xdoclet-module-jboss-net.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/autonumber-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/bcel.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/bindingservice-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/bsh-core-1.3.0.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/bsh-deployer.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/classes12.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/cul4xdk.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/hsqldb.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/hsqldb-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jakarta-poi-1.5.1-final-20020615.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jakarta-regexp-1.1.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/javax.servlet.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jaxrpc.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-common-jdbc-wrapper.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jbossha.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-j2ee.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-jaas.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-jsr77.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-management.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jbossmq.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jbosssx.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jboss-transaction.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jcert.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jmx-adaptor-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jnet.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jnpserver.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jpl-pattern.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jpl-util.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jsse.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jts.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/jxl.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/log4j.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/log4j-1.2.8.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/mail.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/mail-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/properties-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/saaj.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/scheduler-plugin.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/scheduler-plugin-example.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/snmp-adaptor.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/snmp-support.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/SupplierService.jar"/>
+<pathelement location="C:/uengine/standalone/was/server/default/lib/xalan.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/commons-httpclient.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/jboss-boot.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/jboss-common.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/jboss-jmx.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/jboss-system.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/jdom.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/log4j-boot.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/webdavlib.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/xercesImpl.jar"/>
+<pathelement location="C:/uengine/standalone/was/lib/xml-apis.jar"/>
+<pathelement location="C:/uengine/dist/lib/antlr.jar"/>
+<pathelement location="C:/uengine/dist/lib/axis.jar"/>
+<pathelement location="C:/uengine/dist/lib/axis-ant.jar"/>
+<pathelement location="C:/uengine/dist/lib/bpel.jar"/>
+<pathelement location="C:/uengine/dist/lib/commons-discovery.jar"/>
+<pathelement location="C:/uengine/dist/lib/commons-logging.jar"/>
+<pathelement location="C:/uengine/dist/lib/jakarta-regexp-1.1.jar"/>
+<pathelement location="C:/uengine/dist/lib/jaxrpc.jar"/>
+<pathelement location="C:/uengine/dist/lib/log4j-1.2.8.jar"/>
+<pathelement location="C:/uengine/dist/lib/msnm.jar"/>
+<pathelement location="C:/uengine/dist/lib/saaj.jar"/>
+<pathelement location="C:/uengine/dist/lib/wsdl4j.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/server/default/lib/ext/portlet.jar"/>
+<pathelement location="liferay_portal.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/activation.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/castor.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/cglib-asm.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-dbcp.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-fileupload.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-httpclient.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-lang.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-pool.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/commons-validator.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/compression-filter.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/dom4j.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/friki.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/gif89.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/google.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/hibernate.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/informa.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jaim.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jaxm.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jcommon.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jcvs.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jdom.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/jfreechart.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/lucene.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/msnm.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/odmg.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/oro.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/pdfbox.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/poi.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/poi-scratchpad.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/portlet.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/projectb.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/quartz.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/soap.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/struts.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/struts-legacy.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/trove.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/util-java.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/velocity.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/wbmp.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/xerces.jar"/>
+<pathelement location="C:/uengine/standalone2/was/server/default/lib/ext/ym.jar"/>
+<pathelement location="liferay_counter.jar"/>
+<pathelement location="C:/pongsor/dosqllatest/lib/classes12.zip"/>
+<pathelement location="C:/pongsor/dosqllatest/lib/servlet.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/concurrent.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/getopt.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/gnu-regexp.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jacorb.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbossall-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-common-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbosscx-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbossha-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-iiop-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-j2ee.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-jaas.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbossjmx-ant.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-jsr77-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbossmq-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbossmqha.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-net-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jbosssx-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-system-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jboss-transaction-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jcert.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jmx-connector-client-factory.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jmx-ejb-connector-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jmx-invoker-adaptor-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jmx-rmi-connector-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jnet.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jnp-client.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/jsse.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/log4j.jar"/>
+<pathelement location="C:/uengine/standalone/liferay/client/xdoclet-module-jboss-net.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/xerces_dom.jar"/>
+<pathelement location="C:/uengine/standalone2/src/build/uengine.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/mail.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/cul4xdk.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/docsoapxdk.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/jakarta-regexp-1.1.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/jaxp.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/antlr.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/sax2-ext.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/w3c_dom.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/xalan.jar"/>
+<pathelement location="C:/Java/xml/xgen/docsoapxdk/lib/sax2.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/bcel-5.0.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/c3p0-0.8.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/cglib-1.0.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-beanutils-1.6.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-collections-2.1.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-dbcp-1.0.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-lang-1.0-b1.1.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-logging-1.1-dev.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/commons-pool-1.0.1.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/dom4j-1.4.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/hibernate-2.0.3.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/hsqldb-1.7.1.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/jcs-1.0-dev.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/odmg-3.0.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/xerces-2.4.0.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/xindice-1.1b1.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/xmldb-api-20021118.jar"/>
+<pathelement location="C:/Java/bpel/twister-0.1/lib/twister-engine-0.1.jar"/>
+<pathelement location="C:/Java/opensource/reporting tool/iReport0.2.3/lib/tinylaf_.jar"/>
+<pathelement location="C:/uengine/lib/soap.jar"/>
+<pathelement location="C:/uengine/lib/ub.jar"/>
+<pathelement location="C:/uengine/lib/uddi4j.jar"/>
+<pathelement location="C:/Java/ant/apache-ant-1.6.1-bin/lib/ant.jar"/>
+<pathelement location="C:/Java/ant/apache-ant-1.6.1-bin/lib/ant-antlr.jar"/>
+<pathelement location="C:/Java/ant/apache-ant-1.6.1-bin/lib/ant-launcher.jar"/>
+<pathelement location="C:/Java/ftp/ftp-final-version/ftp-final-version/ftp.jar"/>
+
+<fileset dir="C:/Java/eclipse-SDK-2.1.3-win32/eclipse/plugins/org.jboss.ide.eclipse.xdoclet.core_1.2.3/">
+<include name="*.jar"/>
+</fileset>
+</path>
+<target name="_generation_" depends="N10004"/>
+<target name="N10004" description="EJB">
+<taskdef classpathref="xdoclet.classpath" classname="xdoclet.modules.ejb.EjbDocletTask" name="ejbdoclet"/><ejbdoclet ejbSpec="2.0"  destDir="src" >
+
+
+
+
+
+
+
+
+<fileset dir="src"  includes="**/*Bean.java" >
+
+
+
+</fileset>
+<deploymentdescriptor destDir="resources/beans/META-INF" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</deploymentdescriptor>
+<jboss Version="3.0"  destDir="resources/beans/META-INF" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</jboss>
+<remoteinterface>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</remoteinterface>
+<homeinterface>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</homeinterface>
+<entitycmp CmpSpec="2.x" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</entitycmp>
+</ejbdoclet></target>
+</project>

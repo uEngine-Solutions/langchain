@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+<!-- ======================================================================= -->
+<!-- build file                                                       -->
+<!-- ======================================================================= -->
+
+<project name="uEngine" default="makeJar" basedir=".">
+	<property file="../settings/build.properties"/>
+    <property environment="env"/>
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="build.dir" value="${basedir}/bin"/>
+    <property name="build.classes.dir" value="${basedir}/bin"/>
+    <property name="was.home" value="${env.WAS_HOME}"/>
+    <property name="was.deploy.path" value="${was.home}/webapps/ROOT/WEB-INF/lib"/>
+    <property name="webapp.jws.dir" value="${was.home}/webapps/ROOT/html/uengine-web/processmanager"/>
+    <property name="was.deploy.class.path" value="${was.home}/webapps/ROOT/WEB-INF/classes"/>
+ 
+  <!-- Build classpath -->
+  <path id="classpath">
+    <fileset dir="${lib.dir}">
+        <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  
+  	<target name="signjar">
+		<echo message="jarfile=${file.dir}/${file.name}"/>
+		<signjar
+			keystore="./lib/uenginestore"
+			storepass="jinyoungj"
+			keypass="jinyoungj"
+			signedjar="${webapp.jws.dir}/signed${file.name}"
+			jar="${file.dir}/${file.name}" 
+			alias="uenginetools"
+		/>
+	</target>
+    <target name="generateProcessDesignerJWS">
+	<!-- generate signed jar for processdesigner --> 
+	<antcall target="signjar">
+	    <param name="file.name" value="uengine.jar"/>
+	    <param name="file.dir" value="${was.deploy.path}"/>
+	</antcall>
+
+	<antcall target="signjar">
+	   	<param name="file.name" value="batik-all.jar"/>
+	   	<param name="file.dir" value="lib/process_designer_ui"/>
+	</antcall>
+    	
+    <antcall target="signjar">
+    	<param name="file.name" value="flamingo.jar"/>
+    	<param name="file.dir" value="lib/process_designer_ui"/>
+    </antcall>
+
+    <antcall target="signjar">
+      	<param name="file.name" value="substance.jar"/>
+       	<param name="file.dir" value="lib/process_designer_ui"/>
+    </antcall>
+    	
+    <antcall target="signjar">
+    	<param name="file.name" value="substance-flamingo.jar"/>
+    	<param name="file.dir" value="lib/process_designer_ui"/>
+    </antcall>
+    
+    <antcall target="signjar">
+    	<param name="file.name" value="swingx.jar"/>
+    	<param name="file.dir" value="lib/process_designer_ui"/>
+    </antcall>
+    	
+    <antcall target="signjar">
+		<param name="file.name" value="xml-apis-ext.jar"/>
+		<param name="file.dir" value="lib/process_designer_ui"/>
+	</antcall>    	
+    	
+    <antcall target="signjar">
+    	 <param name="file.name" value="portal-kernel.jar"/>
+    	 <param name="file.dir" value="${was.home}/common/lib/ext/"/>
+    </antcall>
+    	
+	<antcall target="signjar">
+		<param name="file.name" value="metaworks.jar"/>
+    	<param name="file.dir" value="lib"/>
+    </antcall>
+  </target>
+  
+
+  <!-- =================================================================== -->
+  <!-- Prepares the build directory                                        -->
+  <!-- =================================================================== -->
+  <target name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build.classes.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Compiles the source code                                            -->
+  <!-- =================================================================== -->
+
+  <target name="compile" depends="prepare">  
+	<copy todir="${build.classes.dir}">
+		<fileset dir="${src.dir}">
+		      	  <include name="**/*.xml"/>
+		      	  <include name="**/*.gif"/>
+	      	  	  <include name="**/*.svg"/>
+		      	  <include name="**/*.properties"/>
+		</fileset>
+	</copy> 
+
+    <javac srcdir="${src.dir}"
+           destdir="${build.classes.dir}"
+           debug="on"
+           deprecation="on"
+           optimize="off"
+           includes="**">
+            <classpath refid="classpath"/>
+    </javac>
+  </target>
+  
+  <target name="makeJar" depends="compile">
+      <jar jarfile="${was.deploy.path}/uengine.jar">
+      <fileset dir="${build.classes.dir}">
+      	  <include name="com/**/*.class"/>
+      	  <include name="**/*.class"/>
+      	  <include name="**/*.xml"/>
+      	  <include name="**/*.gif"/>
+    	  <include name="**/*.svg"/>
+      	  <include name="**/*.properties"/>
+      	  <exclude name="org/uengine/example/client/**/*.class"/>
+      	  <exclude name="com/liferay/**/*.class"/>
+      	  <!--exclude name="org/uengine/processdesigner/**/*.class"/-->
+      </fileset>
+      <!--fileset dir="${src.resources}/beans/">
+          <include name="**/*.xml"/>
+      </fileset-->
+     <!--jar jarfile="${build.dir}/uengine.jar">
+      <fileset dir="${was.deploy.path}/uengine.jar">
+      	  <include name="**/*.*"/>
+      </fileset>
+     </jar-->
+     </jar>
+     
+     <antcall target="generateProcessDesignerJWS"/>
+     
+     
+  </target>
+
+ 
+  <!-- =================================================================== -->
+  <!-- Deploy Activity Component to running uEngine                        -->
+  <!-- =================================================================== -->
+
+  <!-- =================================================================== -->
+  <!-- Generate Axis WebService Stub                                       
+	USAGE: ant GenerateServiceStub -Dparam.service=uEngineProcessManage
+	rService -Dparam.stubClassPath=org/uengine/webservices/processmanager -Dparam.stubClassPackage=org.uengine.webservices.p
+	rocessmanager														   -->											
+  <!-- =================================================================== -->
+
+  
+  <!-- =================================================================== -->
+  <!-- Deploy Web Service to uEngine                                       -->
+  <!-- =================================================================== -->
+
+	
+  <!-- =================================================================== -->
+  <!-- Web Service Deploy                                                  
+	USAGE:  
+	ant deployWebService -Dparam.stubClassPath=services/uEngineProcessManagerService/org/uengine/webservices/processmanager
+  																		   -->
+  <!-- =================================================================== -->
+
+
+  
+  <!-- =================================================================== -->
+  <!-- Install / Configuration                                             -->
+  <!-- =================================================================== -->
+  
+  
+  <!-- =================================================================== -->
+  <!-- Runs the tools / tests                                              -->
+  <!-- =================================================================== -->
+
+
+
+  <!-- =================================================================== -->
+  <!-- Java Web Start support		                                       -->
+  <!-- =================================================================== -->
+	  
+	 
+  
+</project>
